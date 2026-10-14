@@ -8,6 +8,7 @@ export interface Experience {
   summary: string;
   highlights: string[];
   technologies: string[];
+  isCurrent: boolean;
   metrics?: { label: string; value: string }[];
 }
 

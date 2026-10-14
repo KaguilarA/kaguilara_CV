@@ -28,8 +28,9 @@ export const EXPERIENCES: Experience[] = [
     role: 'Senior Front-End Developer',
     company: 'Plannatech',
     period: 'Sept 2025 – Jul 2026',
-    location: 'Remote',
+    location: 'Hybrid (San José, Costa Rica)',
     type: 'Full-time',
+    isCurrent: false,
     summary:
       'Spearheading client-side performance engineering and state modernization for enterprise core applications.',
     highlights: [
@@ -49,8 +50,9 @@ export const EXPERIENCES: Experience[] = [
     role: 'Senior Front-End Developer',
     company: 'Clicklease',
     period: 'Nov 2022 – Sept 2024',
-    location: 'Remote',
+    location: 'Hybrid (San José, Costa Rica)',
     type: 'Full-time',
+    isCurrent: false,
     summary:
       'Architected enterprise reusable component systems and decoupled application scaling via micro-frontends.',
     highlights: [
@@ -71,8 +73,9 @@ export const EXPERIENCES: Experience[] = [
     role: 'Code Architect & Lead Graphics Engineer',
     company: 'Konceptik Studio (CoinBox Studio)',
     period: 'May 2018 – Sept 2022',
-    location: 'San José, Costa Rica',
+    location: 'On-site (San José, Costa Rica)',
     type: 'Full-time',
+    isCurrent: false,
     summary:
       'Designed and engineered custom 2D/3D JavaScript rendering engines, WebGL pipelines, and cloud asset pipelines powering 35+ commercial slot and scratch games for CoinBox Studio (coinboxstudio.com).',
     highlights: [
@@ -92,8 +95,9 @@ export const EXPERIENCES: Experience[] = [
     role: 'Front-End Developer',
     company: 'Interaction',
     period: 'May 2017 – Apr 2018',
-    location: 'Costa Rica',
+    location: 'On-site (San José, Costa Rica)',
     type: 'Full-time',
+    isCurrent: false,
     summary:
       'Engineered high-converting responsive web applications and interactive client portals with React and cloud backends.',
     highlights: [
@@ -108,8 +112,9 @@ export const EXPERIENCES: Experience[] = [
     role: 'Front-End Developer',
     company: 'Infosgroup',
     period: 'May 2017 – Sept 2017',
-    location: 'Costa Rica',
+    location: 'On-site (San José, Costa Rica)',
     type: 'Full-time',
+    isCurrent: false,
     summary:
       'Built mission-critical logistics tracking applications for national export agency (Procomer).',
     highlights: [
@@ -126,6 +131,7 @@ export const EXPERIENCES: Experience[] = [
     period: 'Concurrent',
     location: 'Remote',
     type: 'Project Work',
+    isCurrent: false,
     summary:
       'Architected cross-platform mobile solutions with React Native and Expo.',
     highlights: [

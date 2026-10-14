@@ -31,7 +31,7 @@ export const ExperienceTimeline: React.FC = () => {
       <div className="relative border-l-2 border-slate-800 ml-3 md:ml-6 pl-6 md:pl-8 space-y-8">
         {EXPERIENCES.map((exp, index) => {
           const isExpanded = expandedId === exp.id;
-          const isCurrent = index === 0;
+          const isCurrent = exp.isCurrent;
 
           return (
             <div key={exp.id} className="relative group">
