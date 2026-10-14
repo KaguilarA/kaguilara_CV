@@ -27,7 +27,7 @@ export const EXPERIENCES: Experience[] = [
     id: 'plannatech',
     role: 'Senior Front-End Developer',
     company: 'Plannatech',
-    period: 'Sept 2024 – Present',
+    period: 'Sept 2025 – Jul 2026',
     location: 'Remote',
     type: 'Full-time',
     summary:
