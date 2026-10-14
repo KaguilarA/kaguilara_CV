@@ -29,7 +29,7 @@ export const ExperienceTimeline: React.FC = () => {
 
       {/* Timeline items */}
       <div className="relative border-l-2 border-slate-800 ml-3 md:ml-6 pl-6 md:pl-8 space-y-8">
-        {EXPERIENCES.map((exp, index) => {
+        {EXPERIENCES.map((exp) => {
           const isExpanded = expandedId === exp.id;
           const isCurrent = exp.isCurrent;
 
