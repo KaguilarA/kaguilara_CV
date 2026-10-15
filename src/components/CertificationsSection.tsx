@@ -45,6 +45,17 @@ export const CertificationsSection: React.FC = () => {
                       <span>•</span>
                       <span className="text-sky-400">{cert.year}</span>
                     </div>
+                    {cert.credentialUrl && (
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 mt-2 text-xs font-medium text-sky-400 hover:text-sky-300 transition-colors"
+                      >
+                        View certificate
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

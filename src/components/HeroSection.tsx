@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/resumeData';
-import { Mail, Phone, MapPin, Download, Check, Terminal, ExternalLink, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, Check, Terminal, ExternalLink, ArrowRight, MessageCircle, Palette } from 'lucide-react';
 import { soundFx } from '../utils/soundEffects';
 import { GithubIcon } from './icons/GithubIcon';
 
@@ -107,6 +107,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
           </a>
 
+          <a
+            href={PERSONAL_INFO.behance}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <Palette className="w-4 h-4 text-sky-400" />
+            <span>Behance</span>
+          </a>
+
+          <a
+            href={`https://wa.me/${PERSONAL_INFO.phone.replace(/\D/g, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-950/50 hover:bg-emerald-900/60 text-emerald-200 border border-emerald-800/70 font-mono text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <MessageCircle className="w-4 h-4 text-emerald-400" />
+            <span>WhatsApp</span>
+          </a>
+
           <button
             onClick={handleCopyEmail}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-xs sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -122,7 +142,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             title="Print or Save PDF"
           >
             <Download className="w-4 h-4 text-purple-400" />
-            <span>Export CV (Print/PDF)</span>
+            <span>Download CV</span>
           </button>
         </div>
 
