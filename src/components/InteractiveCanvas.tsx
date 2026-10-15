@@ -9,7 +9,6 @@ interface Particle {
   radius: number;
   baseRadius: number;
   color: string;
-  connections: number[];
   label?: string;
 }
 
@@ -72,7 +71,6 @@ export const InteractiveCanvas: React.FC = () => {
         radius: Math.random() * 2 + 2,
         baseRadius: Math.random() * 2 + 2,
         color: colors[i % colors.length],
-        connections: [],
         label: i < ARCH_NODES.length ? ARCH_NODES[i] : undefined,
       });
     }
@@ -89,7 +87,7 @@ export const InteractiveCanvas: React.FC = () => {
 
     const render = (time: number) => {
       frameCount++;
-      if (time - lastFpsUpdate >= 500) {
+      if (time - lastFpsUpdate >= 1000) {
         setFps(Math.round((frameCount * 1000) / (time - lastFpsUpdate)));
         frameCount = 0;
         lastFpsUpdate = time;
@@ -139,6 +137,8 @@ export const InteractiveCanvas: React.FC = () => {
         }
 
         // Update and draw particles
+        const maxDist = canvasMode === 'pulse' ? 140 : 100;
+        const maxDistSquared = maxDist * maxDist;
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
 
@@ -182,12 +182,14 @@ export const InteractiveCanvas: React.FC = () => {
           }
 
           // Connect particles within distance
-          const maxDist = canvasMode === 'pulse' ? 140 : 100;
           for (let j = i + 1; j < particles.length; j++) {
             const p2 = particles[j];
-            const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const distanceSquared = dx * dx + dy * dy;
 
-            if (dist < maxDist) {
+            if (distanceSquared < maxDistSquared) {
+              const dist = Math.sqrt(distanceSquared);
               const alpha = (1 - dist / maxDist) * 0.25;
               ctx.beginPath();
               ctx.moveTo(p.x, p.y);
@@ -203,7 +205,32 @@ export const InteractiveCanvas: React.FC = () => {
       animFrameId.current = requestAnimationFrame(render);
     };
 
-    animFrameId.current = requestAnimationFrame(render);
+    let isInViewport = false;
+    let isPageVisible = !document.hidden;
+    const startAnimation = () => {
+      if (isInViewport && isPageVisible && animFrameId.current === null) {
+        animFrameId.current = requestAnimationFrame(render);
+      }
+    };
+    const stopAnimation = () => {
+      if (animFrameId.current !== null) {
+        cancelAnimationFrame(animFrameId.current);
+        animFrameId.current = null;
+      }
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      isInViewport = entry.isIntersecting;
+      if (isInViewport) startAnimation();
+      else stopAnimation();
+    });
+    observer.observe(canvas);
+
+    const handleVisibilityChange = () => {
+      isPageVisible = !document.hidden;
+      if (isPageVisible) startAnimation();
+      else stopAnimation();
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     const onMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
@@ -220,7 +247,9 @@ export const InteractiveCanvas: React.FC = () => {
     canvas.addEventListener('mouseleave', onMouseLeave);
 
     return () => {
-      if (animFrameId.current) cancelAnimationFrame(animFrameId.current);
+      stopAnimation();
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', onMouseMove);
       canvas.removeEventListener('mouseleave', onMouseLeave);

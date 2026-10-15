@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroSection } from './components/HeroSection';
 import { InteractiveCanvas } from './components/InteractiveCanvas';
@@ -10,9 +10,16 @@ import { SkillsMatrix } from './components/SkillsMatrix';
 import { LivePerformanceDemo } from './components/LivePerformanceDemo';
 import { CertificationsSection } from './components/CertificationsSection';
 import { Footer } from './components/Footer';
-import { CommandPalette } from './components/CommandPalette';
-import { JsonViewModal } from './components/JsonViewModal';
+import { ResumePrint } from './components/ResumePrint';
 import { soundFx } from './utils/soundEffects';
+import { createPortal } from 'react-dom';
+
+const CommandPalette = lazy(() =>
+  import('./components/CommandPalette').then(({ CommandPalette: component }) => ({ default: component }))
+);
+const JsonViewModal = lazy(() =>
+  import('./components/JsonViewModal').then(({ JsonViewModal: component }) => ({ default: component }))
+);
 
 export function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
@@ -89,45 +96,50 @@ export function App() {
         {/* Systems Architecture Showcase */}
         <ArchitectureShowcase />
 
+        {/* Professional Experience Timeline */}
+        <ExperienceTimeline />
+
+        {/* Education & Certifications */}
+        <CertificationsSection />
+
+        {/* Technical Skills Matrix */}
+        <SkillsMatrix />
+
         {/* Authored Open-Source Libraries (Reactive-Values & owl-expressjs-utils) */}
         <LibrariesShowcase />
 
         {/* Shipped Games Showcase (Konceptik & CoinBox Studio) */}
         <GamesShowcase />
 
-        {/* Professional Experience Timeline */}
-        <ExperienceTimeline />
-
-        {/* Technical Skills Matrix */}
-        <SkillsMatrix />
-
         {/* Live React Performance Profiler & Benchmark */}
         <LivePerformanceDemo />
-
-        {/* Education & Certifications */}
-        <CertificationsSection />
       </main>
 
       {/* Footer & Direct Contact */}
       <Footer />
 
+      {createPortal(<ResumePrint />, document.body)}
+
       {/* Command Palette Modal (CMD+K) */}
-      <CommandPalette
-        isOpen={isCommandPaletteOpen}
-        onClose={() => setIsCommandPaletteOpen(false)}
-        onSelectSection={handleSelectSection}
-        onToggleSound={handleToggleSound}
-        soundEnabled={soundEnabled}
-        onToggleJsonMode={() => {
-          setIsJsonModalOpen(true);
-        }}
-      />
+      {isCommandPaletteOpen && (
+        <Suspense fallback={null}>
+          <CommandPalette
+            isOpen
+            onClose={() => setIsCommandPaletteOpen(false)}
+            onSelectSection={handleSelectSection}
+            onToggleSound={handleToggleSound}
+            soundEnabled={soundEnabled}
+            onToggleJsonMode={() => setIsJsonModalOpen(true)}
+          />
+        </Suspense>
+      )}
 
       {/* Developer Raw JSON Resume Schema Modal */}
-      <JsonViewModal
-        isOpen={isJsonModalOpen}
-        onClose={() => setIsJsonModalOpen(false)}
-      />
+      {isJsonModalOpen && (
+        <Suspense fallback={null}>
+          <JsonViewModal isOpen onClose={() => setIsJsonModalOpen(false)} />
+        </Suspense>
+      )}
     </div>
   );
 }
