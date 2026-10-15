@@ -20,12 +20,12 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
 }) => {
   const navLinks = [
     { id: 'architecture', label: 'Architecture' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'certifications', label: 'Education' },
+    { id: 'skills', label: 'Skills' },
     { id: 'libraries', label: 'Libraries' },
     { id: 'games', label: 'Games' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
     { id: 'profiler', label: 'Profiler' },
-    { id: 'certifications', label: 'Education' },
   ];
 
   return (
@@ -49,7 +49,6 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               <span>Kevin Aguilar</span>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             </div>
-            <div className="text-[10px] font-mono text-slate-400">Senior Architect</div>
           </div>
         </div>
 

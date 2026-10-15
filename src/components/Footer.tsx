@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PERSONAL_INFO } from '../data/resumeData';
-import { Mail, MapPin, ExternalLink, Copy, Check, Clock, Code2 } from 'lucide-react';
+import { Mail, MapPin, ExternalLink, Copy, Check, Clock, Code2, MessageCircle } from 'lucide-react';
 import { soundFx } from '../utils/soundEffects';
 
 export const Footer: React.FC = () => {
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
               Ready for the next technical challenge.
             </h3>
             <p className="text-slate-400 text-sm max-w-xl">
-              Open to discussions regarding Senior Frontend Engineering, Staff/Lead Roles, and Architecture Consulting.
+              Open to discussions regarding Senior JavaScript Engineering, Staff/Lead Roles, and Architecture Consulting.
             </p>
           </div>
 
@@ -65,6 +65,16 @@ export const Footer: React.FC = () => {
             >
               <Mail className="w-4 h-4 text-sky-400" />
               <span>Send Direct Message</span>
+            </a>
+
+            <a
+              href={`https://wa.me/${PERSONAL_INFO.phone.replace(/\D/g, '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all hover:scale-105"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Message me on WhatsApp</span>
             </a>
           </div>
         </div>
@@ -107,6 +117,15 @@ export const Footer: React.FC = () => {
               className="text-slate-400 hover:text-white mt-1 flex items-center gap-1"
             >
               <span>GitHub (KaguilarA)</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            <a
+              href={PERSONAL_INFO.behance}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-white mt-1 flex items-center gap-1"
+            >
+              <span>Behance Portfolio</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>

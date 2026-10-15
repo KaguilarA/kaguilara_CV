@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Terminal, ArrowRight, X, Volume2, Sparkles, FileText, Mail, ExternalLink, Code, Gamepad2, Package } from 'lucide-react';
-import confetti from 'canvas-confetti';
 import { soundFx } from '../utils/soundEffects';
 import { GithubIcon } from './icons/GithubIcon';
 
@@ -119,11 +118,13 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       icon: <Sparkles className="w-4 h-4 text-pink-400" />,
       action: () => {
         soundFx.playLaser();
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#38bdf8', '#c084fc', '#34d399', '#f43f5e'],
+        void import('canvas-confetti').then(({ default: confetti }) => {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#38bdf8', '#c084fc', '#34d399', '#f43f5e'],
+          });
         });
       },
     },
