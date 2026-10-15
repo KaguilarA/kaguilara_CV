@@ -2,14 +2,15 @@ import type { Experience, ArchitectureItem, SkillCategory, Certification, GamePr
 
 export const PERSONAL_INFO = {
   name: 'Kevin Aguilar',
-  title: 'Senior Frontend Engineer & Systems Architect',
+  title: 'Senior JavaScript Engineer & Systems Architect',
   location: 'San José, Costa Rica (Available for Global / Remote)',
   email: 'kevin.231@hotmail.com',
   phone: '+506 6444-5188',
   linkedin: 'https://linkedin.com/in/kaguilara',
+  behance: 'https://www.behance.net/kevinaguilar231',
   github: 'https://github.com/KaguilarA',
   summary:
-    'Senior Frontend Software Engineer with 8+ years of engineering across the modern JavaScript ecosystem. Specializing in high-performance React & Angular architectures, fine-grained reactivity, real-time Canvas/WebGL rendering engines, enterprise component design systems, and distributed Micro-Frontends. Proven track record of bridging low-level performance profiling with clean, scalable product architecture.',
+    'Senior JavaScript Software Engineer with 8+ years of engineering across the modern JavaScript ecosystem. Specializing in high-performance React & Angular architectures, fine-grained reactivity, real-time Canvas/WebGL rendering engines, enterprise component design systems, and distributed Micro-Frontends. Proven track record of bridging low-level performance profiling with clean, scalable product architecture.',
   languages: [
     { name: 'Spanish', proficiency: 'Native' },
     { name: 'English', proficiency: 'Advanced / Professional Working Proficiency' },
@@ -218,7 +219,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     ],
   },
   {
-    category: 'Modern JavaScript & Frontend Ecosystem',
+    category: 'Modern JavaScript & Framework Ecosystem',
     skills: [
       { name: 'JavaScript (ES6+ / Deep Engine Internals)', level: 98, experienceYears: '8+ yrs', description: 'Event loop, microtasks, V8 optimization, prototype chains, async mechanics', featured: true },
       { name: 'TypeScript (Advanced Typing & Generics)', level: 96, experienceYears: '7+ yrs', description: 'Conditional types, mapped types, strict contracts, infer, branded types', featured: true },
@@ -251,9 +252,10 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    title: 'Certified Software Architecture & Design of Modern Systems',
-    issuer: 'Professional Accreditation',
+    title: 'Software Architecture & Design of Modern Large Scale Systems',
+    issuer: 'Udemy',
     year: '2024',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-b5ae8398-743d-465d-9c41-5c4ddaff3de2/',
     highlight: true,
   },
   {
@@ -263,26 +265,37 @@ export const CERTIFICATIONS: Certification[] = [
     highlight: true,
   },
   {
-    title: 'Angular Avanzado: Lleva tus bases al siguiente nivel (32.5 hrs)',
-    issuer: 'DevTalles',
+    title: 'Advanced Angular: Take Your Foundations to the Next Level - 2022',
+    issuer: 'Udemy',
     year: '2026',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-ad4bc116-d7fc-4566-b57d-d42ecfc4a240/',
     highlight: true,
   },
   {
-    title: 'JavaScript Moderno: Guía para dominar el lenguaje (21 hrs)',
+    title: 'Angular: From Zero to Expert',
     issuer: 'DevTalles',
     year: '2026',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-d2e68940-99f5-489b-843a-eee8e9b32c8a/',
     highlight: true,
   },
   {
-    title: 'Curso de TypeScript: El curso antes de Angular, React o Vue',
-    issuer: 'DevTalles',
+    title: 'Modern JavaScript: A Guide to Mastering the Language',
+    issuer: 'Udemy',
     year: '2026',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-4cec7ce7-26e4-4d6b-8229-9792b00872e4/',
+    highlight: true,
   },
   {
-    title: 'Aprende Programación en Java (de Básico a Avanzado) (56 hrs)',
-    issuer: 'Certified Training',
+    title: 'TypeScript Course: The Course Before Angular, React, or Vue',
+    issuer: 'Udemy',
     year: '2026',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-57fe4e2d-5b78-451a-a928-e117e443a114/',
+  },
+  {
+    title: 'Learn Java Programming (From Beginner to Advanced)',
+    issuer: 'Udemy',
+    year: '2026',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-0630befb-cc80-4d1c-9d45-13c087383560/',
   },
 ];
 
