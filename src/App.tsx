@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import { useCallback } from 'react';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroSection } from './components/HeroSection';
 import { InteractiveCanvas } from './components/InteractiveCanvas';
@@ -11,46 +11,15 @@ import { LivePerformanceDemo } from './components/LivePerformanceDemo';
 import { CertificationsSection } from './components/CertificationsSection';
 import { Footer } from './components/Footer';
 import { ResumePrint } from './components/ResumePrint';
-import { soundFx } from './utils/soundEffects';
 import { createPortal } from 'react-dom';
-
-const CommandPalette = lazy(() =>
-  import('./components/CommandPalette').then(({ CommandPalette: component }) => ({ default: component }))
-);
-const JsonViewModal = lazy(() =>
-  import('./components/JsonViewModal').then(({ JsonViewModal: component }) => ({ default: component }))
-);
+import { useTranslate } from './i18n';
 
 export function App() {
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
-  const [isJsonModalOpen, setIsJsonModalOpen] = useState<boolean>(false);
-  const [soundEnabled, setSoundEnabled] = useState<boolean>(false);
-
-  // Global keyboard shortcut: Cmd+K / Ctrl+K
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        setIsCommandPaletteOpen((prev) => !prev);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const handleToggleSound = useCallback(() => {
-    soundFx.enabled = !soundEnabled;
-    setSoundEnabled(!soundEnabled);
-    if (!soundEnabled) {
-      soundFx.playSuccess();
-    }
-  }, [soundEnabled]);
-
+  const t = useTranslate();
   const handleSelectSection = useCallback((sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
-      soundFx.playClick(600);
     }
   }, []);
 
@@ -65,10 +34,6 @@ export function App() {
 
       {/* Sticky Navigation Header */}
       <HeaderNav
-        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
-        onToggleSound={handleToggleSound}
-        soundEnabled={soundEnabled}
-        onOpenJsonMode={() => setIsJsonModalOpen(true)}
         onSelectSection={handleSelectSection}
       />
 
@@ -76,7 +41,6 @@ export function App() {
       <main className="relative z-10 flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 space-y-20">
         {/* Executive Hero */}
         <HeroSection
-          onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
           onSelectSection={handleSelectSection}
           onOpenContactModal={() => handleSelectSection('contact')}
         />
@@ -86,9 +50,9 @@ export function App() {
           <div className="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-              Live Interactive Architecture & Particle Topology Engine
+              {t('Live Interactive Architecture & Particle Topology Engine')}
             </span>
-            <span className="hidden sm:inline text-slate-500">60 FPS Hardware-Accelerated Canvas</span>
+            <span className="hidden sm:inline text-slate-500">{t('60 FPS Hardware-Accelerated Canvas')}</span>
           </div>
           <InteractiveCanvas />
         </div>
@@ -120,26 +84,6 @@ export function App() {
 
       {createPortal(<ResumePrint />, document.body)}
 
-      {/* Command Palette Modal (CMD+K) */}
-      {isCommandPaletteOpen && (
-        <Suspense fallback={null}>
-          <CommandPalette
-            isOpen
-            onClose={() => setIsCommandPaletteOpen(false)}
-            onSelectSection={handleSelectSection}
-            onToggleSound={handleToggleSound}
-            soundEnabled={soundEnabled}
-            onToggleJsonMode={() => setIsJsonModalOpen(true)}
-          />
-        </Suspense>
-      )}
-
-      {/* Developer Raw JSON Resume Schema Modal */}
-      {isJsonModalOpen && (
-        <Suspense fallback={null}>
-          <JsonViewModal isOpen onClose={() => setIsJsonModalOpen(false)} />
-        </Suspense>
-      )}
     </div>
   );
 }

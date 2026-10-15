@@ -252,16 +252,16 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    title: 'Web Development Diploma',
+    issuer: 'Universidad Cenfotec',
+    year: '2017',
+    highlight: true,
+  },
+  {
     title: 'Software Architecture & Design of Modern Large Scale Systems',
     issuer: 'Udemy',
     year: '2024',
     credentialUrl: 'https://www.udemy.com/certificate/UC-b5ae8398-743d-465d-9c41-5c4ddaff3de2/',
-    highlight: true,
-  },
-  {
-    title: 'Web Development Diploma',
-    issuer: 'Universidad Cenfotec',
-    year: '2017',
     highlight: true,
   },
   {

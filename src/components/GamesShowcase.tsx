@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { COINBOX_GAMES } from '../data/resumeData';
 import { Gamepad2, ExternalLink, Sparkles, Cpu, Layers } from 'lucide-react';
-import { soundFx } from '../utils/soundEffects';
+import { useTranslate } from '../i18n';
 
 export const GamesShowcase: React.FC = () => {
+  const t = useTranslate();
   const [activeFilter, setActiveFilter] = useState<'All' | 'Slot' | 'Scratch' | 'Keno'>('All');
 
   const filteredGames = COINBOX_GAMES.filter((g) => {
@@ -13,7 +14,6 @@ export const GamesShowcase: React.FC = () => {
 
   const handleFilterChange = (filter: 'All' | 'Slot' | 'Scratch' | 'Keno') => {
     setActiveFilter(filter);
-    soundFx.playClick(650);
   };
 
   return (
@@ -23,13 +23,13 @@ export const GamesShowcase: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400 text-xs font-mono uppercase tracking-wider mb-2">
             <Gamepad2 className="w-3.5 h-3.5" />
-            <span>Interactive Graphics & Engine Architecture</span>
+            <span>{t('Interactive Graphics & Engine Architecture')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            Shipped Games (Konceptik & CoinBox Studio)
+            {t('Shipped Games (Konceptik & CoinBox Studio)')}
           </h2>
           <p className="text-slate-400 text-sm md:text-base max-w-2xl mt-1">
-            Engineered the core JavaScript/Canvas rendering architecture powering 35+ commercial slot and scratch card titles published on{' '}
+            {t('Engineered the core JavaScript/Canvas rendering architecture powering 35+ commercial slot and scratch card titles published on')}{' '}
             <a
               href="https://coinboxstudio.com/"
               target="_blank"
@@ -49,7 +49,7 @@ export const GamesShowcase: React.FC = () => {
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-pink-500/60 text-xs font-mono text-slate-200 hover:text-white transition-all shadow-md self-start md:self-auto"
         >
-          <span>Visit coinboxstudio.com</span>
+          <span>{t('Visit coinboxstudio.com')}</span>
           <ExternalLink className="w-3.5 h-3.5 text-pink-400" />
         </a>
       </div>
@@ -68,7 +68,7 @@ export const GamesShowcase: React.FC = () => {
                   : 'bg-slate-900/60 text-slate-400 border border-slate-800 hover:text-slate-200 hover:bg-slate-800'
               }`}
             >
-              {filter === 'All' ? 'All Games (11+)' : `${filter} Titles`}
+              {filter === 'All' ? t('All Games (11+)') : `${t(filter)} ${t('Titles')}`}
             </button>
           );
         })}
@@ -95,11 +95,11 @@ export const GamesShowcase: React.FC = () => {
               {/* Badges on image */}
               <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
                 <span className="px-2 py-0.5 rounded-md text-[0.625em] font-mono font-bold uppercase tracking-wider bg-slate-950/80 text-pink-400 border border-pink-500/40 backdrop-blur-md">
-                  {game.type}
+                  {t(game.type)}
                 </span>
                 {game.lines && (
                   <span className="px-2 py-0.5 rounded-md text-[0.625em] font-mono bg-slate-950/80 text-sky-400 border border-sky-500/40 backdrop-blur-md">
-                    {game.lines} Lines
+                    {game.lines} {t('Lines')}
                   </span>
                 )}
               </div>
@@ -120,7 +120,7 @@ export const GamesShowcase: React.FC = () => {
               <div className="flex items-center justify-between text-[0.6875em] font-mono text-slate-400 pt-1 border-t border-slate-800/80">
                 <span className="flex items-center gap-1 text-slate-400">
                   <Cpu className="w-3 h-3 text-sky-400" />
-                  60 FPS Canvas
+                  {t('60 FPS Canvas')}
                 </span>
 
                 <a
@@ -129,7 +129,7 @@ export const GamesShowcase: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-pink-400 hover:text-pink-300 flex items-center gap-0.5"
                 >
-                  <span>Play</span>
+                  <span>{t('Play')}</span>
                   <ExternalLink className="w-2.5 h-2.5" />
                 </a>
               </div>
@@ -146,10 +146,10 @@ export const GamesShowcase: React.FC = () => {
           </div>
           <div>
             <span className="text-white font-bold block text-sm font-sans">
-              Konceptik Engine Architecture Highlights
+              {t('Konceptik Engine Architecture Highlights')}
             </span>
             <p className="text-slate-400 text-xs mt-0.5 font-sans leading-relaxed">
-              Targeted 16.6ms requestAnimationFrame tick rate • Object pooling to eliminate GC spikes on mobile • PIXI.js / WebGL batch vertex pipelines • AWS CloudFront & S3 multi-region asset streaming.
+              {t('Targeted 16.6ms requestAnimationFrame tick rate • Object pooling to eliminate GC spikes on mobile • PIXI.js / WebGL batch vertex pipelines • AWS CloudFront & S3 multi-region asset streaming.')}
             </p>
           </div>
         </div>
@@ -160,7 +160,7 @@ export const GamesShowcase: React.FC = () => {
           rel="noopener noreferrer"
           className="px-4 py-2 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border border-pink-500/50 transition-all font-semibold shrink-0"
         >
-          Explore All Games at CoinBox Studio →
+          {t('Explore All Games at CoinBox Studio →')}
         </a>
       </div>
     </section>

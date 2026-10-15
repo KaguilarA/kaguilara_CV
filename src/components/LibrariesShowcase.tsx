@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { OPEN_SOURCE_LIBRARIES } from '../data/resumeData';
 import { Package, ExternalLink, Copy, Check, Terminal, Code, Sparkles, BookOpen } from 'lucide-react';
-import { soundFx } from '../utils/soundEffects';
+import { useTranslate } from '../i18n';
 
 export const LibrariesShowcase: React.FC = () => {
+  const t = useTranslate();
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [activeCodeTab, setActiveCodeTab] = useState<{ [key: string]: 'overview' | 'code' }>({
     'reactive-values': 'code',
@@ -11,14 +12,12 @@ export const LibrariesShowcase: React.FC = () => {
   });
 
   const handleCopyCmd = (id: string, cmd: string) => {
-    soundFx.playSuccess();
     navigator.clipboard.writeText(cmd);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
   };
 
   const toggleTab = (id: string, tab: 'overview' | 'code') => {
-    soundFx.playClick(600);
     setActiveCodeTab((prev) => ({ ...prev, [id]: tab }));
   };
 
@@ -29,13 +28,13 @@ export const LibrariesShowcase: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-2">
             <Package className="w-3.5 h-3.5" />
-            <span>Open Source Tooling & Public Packages</span>
+            <span>{t('Open Source Tooling & Public Packages')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            Authored Open-Source Libraries
+            {t('Authored Open-Source Libraries')}
           </h2>
           <p className="text-slate-400 text-sm md:text-base max-w-2xl mt-1">
-            Production-ready NPM packages engineered with strict TypeScript typing, zero superfluous dependencies, and high-performance developer ergonomics.
+            {t('Production-ready NPM packages engineered with strict TypeScript typing, zero superfluous dependencies, and high-performance developer ergonomics.')}
           </p>
         </div>
 
@@ -69,10 +68,16 @@ export const LibrariesShowcase: React.FC = () => {
                       <Package className="w-5 h-5" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                      <a
+                        href={lib.npmUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xl font-bold text-white hover:text-cyan-300 transition-colors flex items-center gap-2"
+                        aria-label={`${lib.name} ${t('on npm')}`}
+                      >
                         {lib.name}
-                      </h3>
-                      <span className="text-xs font-mono text-slate-400">{lib.category}</span>
+                      </a>
+                      <span className="text-xs font-mono text-slate-400">{t(lib.category)}</span>
                     </div>
                   </div>
 
@@ -83,13 +88,13 @@ export const LibrariesShowcase: React.FC = () => {
                     rel="noopener noreferrer"
                     className="px-2.5 py-1 rounded-lg bg-rose-950/40 border border-rose-800/60 text-rose-300 text-[0.6875em] font-mono hover:bg-rose-900/50 transition-colors flex items-center gap-1.5"
                   >
-                    <span>npm: {lib.packageName}</span>
+                    <span>{t('View on npm')}: {lib.packageName}</span>
                     <ExternalLink className="w-3 h-3 text-rose-400" />
                   </a>
                 </div>
 
                 <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  {lib.description}
+                  {t(lib.description)}
                 </p>
 
                 {/* Quick Copy Install Pill */}
@@ -102,10 +107,10 @@ export const LibrariesShowcase: React.FC = () => {
                   <button
                     onClick={() => handleCopyCmd(lib.id, lib.installCmd)}
                     className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-[0.6875em] text-slate-200 transition-colors cursor-pointer"
-                    title="Copy install command"
+                    title={t('Copy install command')}
                   >
                     {isCopied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                    <span>{isCopied ? 'Copied' : 'Copy'}</span>
+                    <span>{isCopied ? t('Copied') : t('Copy')}</span>
                   </button>
                 </div>
               </div>
@@ -124,7 +129,7 @@ export const LibrariesShowcase: React.FC = () => {
                     >
                       <span className="flex items-center gap-1.5">
                         <Code className="w-3 h-3" />
-                        TypeScript Usage
+                        {t('TypeScript Usage')}
                       </span>
                     </button>
                     <button
@@ -137,13 +142,13 @@ export const LibrariesShowcase: React.FC = () => {
                     >
                       <span className="flex items-center gap-1.5">
                         <Sparkles className="w-3 h-3" />
-                        Architectural Features
+                        {t('Architectural Features')}
                       </span>
                     </button>
                   </div>
 
                   <div className="hidden sm:flex items-center gap-1.5 text-[0.6875em] font-mono text-slate-500">
-                    <span>100% Strict TypeScript</span>
+                    <span>{t('100% Strict TypeScript')}</span>
                   </div>
                 </div>
 
@@ -157,7 +162,7 @@ export const LibrariesShowcase: React.FC = () => {
                     {lib.features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <span className="text-cyan-400 mt-0.5">•</span>
-                        <span>{feat}</span>
+                        <span>{t(feat)}</span>
                       </li>
                     ))}
                   </ul>
@@ -186,7 +191,7 @@ export const LibrariesShowcase: React.FC = () => {
                       className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
                     >
                       <BookOpen className="w-3.5 h-3.5" />
-                      <span>Docs</span>
+                      <span>{t('Docs')}</span>
                     </a>
                   )}
 
@@ -196,7 +201,7 @@ export const LibrariesShowcase: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-slate-300 hover:text-white flex items-center gap-1"
                   >
-                    <span>GitHub Repo</span>
+                    <span>{t('GitHub Repo')}</span>
                     <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
                   </a>
                 </div>

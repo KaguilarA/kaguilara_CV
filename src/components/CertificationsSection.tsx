@@ -1,21 +1,23 @@
 import React from 'react';
 import { CERTIFICATIONS, PERSONAL_INFO } from '../data/resumeData';
 import { Award, GraduationCap, Globe, CheckCircle } from 'lucide-react';
+import { useTranslate } from '../i18n';
 
 export const CertificationsSection: React.FC = () => {
+  const t = useTranslate();
   return (
     <section id="certifications" className="scroll-mt-24 space-y-8">
       {/* Header */}
       <div>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-mono uppercase tracking-wider mb-2">
           <Award className="w-3.5 h-3.5" />
-          <span>Accreditations & Languages</span>
+          <span>{t('Accreditations & Languages')}</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          Education & Certifications
+          {t('Education & Certifications')}
         </h2>
         <p className="text-slate-400 text-sm md:text-base max-w-2xl mt-1">
-          Formal academic foundation paired with rigorous continuous specialization in system design, advanced JavaScript runtimes, and engineering leadership.
+          {t('Formal academic foundation paired with rigorous continuous specialization in system design, advanced JavaScript runtimes, and engineering leadership.')}
         </p>
       </div>
 
@@ -27,9 +29,9 @@ export const CertificationsSection: React.FC = () => {
               <div
                 key={idx}
                 className={`p-4 rounded-xl border transition-all ${
-                  cert.highlight
-                    ? 'bg-slate-900/80 border-slate-700/80 hover:border-sky-500/50 shadow-md'
-                    : 'bg-slate-950/50 border-slate-800/80 text-slate-300'
+                  cert.issuer === 'Universidad Cenfotec'
+                    ? 'bg-slate-950/50 border-slate-800/80 text-slate-300'
+                    : 'bg-slate-900/80 border-slate-700/80 hover:border-sky-500/50 shadow-md'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -38,7 +40,7 @@ export const CertificationsSection: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-white leading-snug">
-                      {cert.title}
+                      {t(cert.title)}
                     </h3>
                     <div className="flex items-center gap-2 text-xs font-mono text-slate-400 mt-1">
                       <span>{cert.issuer}</span>
@@ -52,7 +54,7 @@ export const CertificationsSection: React.FC = () => {
                         rel="noreferrer"
                         className="inline-flex items-center gap-1 mt-2 text-xs font-medium text-sky-400 hover:text-sky-300 transition-colors"
                       >
-                        View certificate
+                        {t('View certificate')}
                         <span aria-hidden="true">↗</span>
                       </a>
                     )}
@@ -68,18 +70,18 @@ export const CertificationsSection: React.FC = () => {
           <div>
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-3">
               <Globe className="w-4 h-4 text-sky-400" />
-              Language Fluency
+              {t('Language Fluency')}
             </h3>
             <p className="text-xs text-slate-400 mb-4">
-              Experienced working in distributed international and English-speaking engineering squads across time zones (CST / EST / PST).
+              {t('Experienced working in distributed international and English-speaking engineering squads across time zones (CST / EST / PST).')}
             </p>
 
             <div className="space-y-3">
               {PERSONAL_INFO.languages.map((lang) => (
                 <div key={lang.name} className="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
                   <div className="flex items-center justify-between text-xs font-mono mb-1">
-                    <span className="text-slate-200 font-semibold">{lang.name}</span>
-                    <span className="text-emerald-400">{lang.proficiency}</span>
+                    <span className="text-slate-200 font-semibold">{t(lang.name)}</span>
+                    <span className="text-emerald-400">{t(lang.proficiency)}</span>
                   </div>
                   <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
                     <div
@@ -95,7 +97,7 @@ export const CertificationsSection: React.FC = () => {
 
           <div className="p-3 rounded-xl bg-sky-950/30 border border-sky-800/40 text-xs text-slate-300 flex items-center gap-2">
             <CheckCircle className="w-4 h-4 text-sky-400 shrink-0" />
-            <span>Ready for Remote & High-Velocity Engineering Cultures</span>
+            <span>{t('Ready for Remote & High-Velocity Engineering Cultures')}</span>
           </div>
         </div>
       </div>

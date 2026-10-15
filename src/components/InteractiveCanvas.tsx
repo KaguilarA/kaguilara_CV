@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Cpu, Zap, Activity } from 'lucide-react';
+import { useTranslate } from '../i18n';
 
 interface Particle {
   x: number;
@@ -19,6 +20,7 @@ const ARCH_NODES = [
 ];
 
 export const InteractiveCanvas: React.FC = () => {
+  const t = useTranslate();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [fps, setFps] = useState<number>(60);
   const [particleCount, setParticleCount] = useState<number>(65);
@@ -272,12 +274,12 @@ export const InteractiveCanvas: React.FC = () => {
 
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-sky-400">
             <Cpu className="w-3.5 h-3.5 text-sky-400" />
-            <span>Nodes: {particleCount}</span>
+            <span>{t('Nodes')}: {particleCount}</span>
           </div>
 
           <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-mono text-purple-400">
             <Zap className="w-3.5 h-3.5 text-purple-400" />
-            <span>Mode: {canvasMode.toUpperCase()}</span>
+            <span>{t('Mode')}: {t(canvasMode.toUpperCase())}</span>
           </div>
         </div>
 
@@ -286,18 +288,18 @@ export const InteractiveCanvas: React.FC = () => {
           <button
             onClick={toggleMode}
             className="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 text-xs font-mono text-slate-200 backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-md flex items-center gap-2 cursor-pointer"
-            title="Switch Canvas Graphics Pipeline"
+            title={t('Switch Canvas Graphics Pipeline')}
           >
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            Pipeline: {canvasMode}
+            {t('Pipeline')}: {t(canvasMode)}
           </button>
 
           <button
             onClick={() => setParticleCount((c) => (c === 65 ? 120 : c === 120 ? 35 : 65))}
             className="px-3.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 text-xs font-mono text-slate-200 backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
-            title="Adjust Node Density"
+            title={t('Adjust Node Density')}
           >
-            Density: {particleCount}
+            {t('Density')}: {particleCount}
           </button>
         </div>
       </div>
@@ -306,7 +308,7 @@ export const InteractiveCanvas: React.FC = () => {
       <div className="flex items-center justify-between px-2 text-xs font-mono text-slate-400">
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-          <span>Interactive Canvas 2D Pipeline • Move cursor to manipulate gravity & topology</span>
+          <span>{t('Interactive Canvas 2D Pipeline • Move cursor to manipulate gravity & topology')}</span>
         </div>
       </div>
     </div>

@@ -1,31 +1,25 @@
 import React from 'react';
-import { Terminal, Volume2, VolumeX, FileJson, Printer } from 'lucide-react';
+import { Printer } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
-import { soundFx } from '../utils/soundEffects';
+import { useLanguage, useTranslate } from '../i18n';
 
 interface HeaderNavProps {
-  onOpenCommandPalette: () => void;
-  onToggleSound: () => void;
-  soundEnabled: boolean;
-  onOpenJsonMode: () => void;
   onSelectSection: (id: string) => void;
 }
 
 export const HeaderNav: React.FC<HeaderNavProps> = ({
-  onOpenCommandPalette,
-  onToggleSound,
-  soundEnabled,
-  onOpenJsonMode,
   onSelectSection,
 }) => {
+  const { language, setLanguage } = useLanguage();
+  const t = useTranslate();
   const navLinks = [
-    { id: 'architecture', label: 'Architecture' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'certifications', label: 'Education' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'libraries', label: 'Libraries' },
-    { id: 'games', label: 'Games' },
-    { id: 'profiler', label: 'Profiler' },
+    { id: 'architecture', label: t('Architecture') },
+    { id: 'experience', label: t('Experience') },
+    { id: 'certifications', label: t('Education') },
+    { id: 'skills', label: t('Skills') },
+    { id: 'libraries', label: t('Libraries') },
+    { id: 'games', label: t('Games') },
+    { id: 'profiler', label: t('Profiler') },
   ];
 
   return (
@@ -35,7 +29,6 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         <div
           onClick={() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            soundFx.playClick(900);
           }}
           className="flex items-center gap-2.5 cursor-pointer group"
         >
@@ -67,45 +60,20 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
 
         {/* Right Action Tools */}
         <div className="flex items-center gap-2">
-          {/* Quick Launcher Pill */}
           <button
-            onClick={onOpenCommandPalette}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-850 border border-slate-700/80 text-xs font-mono text-slate-300 transition-all hover:border-slate-600 shadow-sm"
-            title="Open Command Launcher"
-          >
-            <Terminal className="w-3.5 h-3.5 text-sky-400" />
-            <span className="hidden sm:inline">⌘K</span>
-          </button>
-
-          {/* Sound FX Toggle */}
-          <button
-            onClick={onToggleSound}
-            className={`p-2 rounded-xl border transition-all ${
-              soundEnabled
-                ? 'bg-purple-950/40 border-purple-700/60 text-purple-300'
-                : 'bg-slate-900 border-slate-800 text-slate-500 hover:text-slate-300'
-            }`}
-            title={soundEnabled ? 'Mute futuristic UI sound effects' : 'Enable futuristic UI sound effects'}
-          >
-            {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-          </button>
-
-          {/* Raw JSON Mode */}
-          <button
-            onClick={onOpenJsonMode}
-            className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-amber-400 transition-colors"
-            title="Inspect Raw Dev JSON Schema"
-          >
-            <FileJson className="w-4 h-4" />
-          </button>
-
+            type="button"
+            onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
+            className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 text-xs font-mono font-bold text-sky-300 hover:bg-slate-800 transition-colors"
+            aria-label={language === 'en' ? 'Cambiar idioma a español' : 'Switch language to English'}
+            title={language === 'en' ? 'Cambiar idioma a español' : 'Switch language to English'}
+          >{language.toUpperCase()}</button>
           {/* GitHub Profile */}
           <a
             href="https://github.com/KaguilarA"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition-colors"
-            title="GitHub Profile (KaguilarA)"
+            title={`${t('GitHub Profile')} (KaguilarA)`}
           >
             <GithubIcon className="w-4 h-4" />
           </a>
@@ -114,7 +82,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           <button
             onClick={() => window.print()}
             className="hidden sm:flex p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-sky-400 transition-colors"
-            title="Print or Export PDF"
+            title={t('Print or Export PDF')}
           >
             <Printer className="w-4 h-4" />
           </button>

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { EXPERIENCES } from '../data/resumeData';
 import { Briefcase, Calendar, MapPin, ChevronDown, ChevronUp, CheckCircle, Zap } from 'lucide-react';
-import { soundFx } from '../utils/soundEffects';
+import { useTranslate } from '../i18n';
 
 export const ExperienceTimeline: React.FC = () => {
+  const t = useTranslate();
   const [expandedId, setExpandedId] = useState<string | null>(EXPERIENCES[0].id);
 
   const toggleExpand = (id: string) => {
-    soundFx.playClick(650);
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
@@ -17,13 +17,13 @@ export const ExperienceTimeline: React.FC = () => {
       <div>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-mono uppercase tracking-wider mb-2">
           <Briefcase className="w-3.5 h-3.5" />
-          <span>Track Record & Engineering Leadership</span>
+          <span>{t('Track Record & Engineering Leadership')}</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          Professional Experience
+          {t('Professional Experience')}
         </h2>
         <p className="text-slate-400 text-sm md:text-base max-w-2xl mt-1">
-          Over 8 years building, scaling, and architecting mission-critical web applications, enterprise libraries, and interactive systems.
+          {t('Over 8 years building, scaling, and architecting mission-critical web applications, enterprise libraries, and interactive systems.')}
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export const ExperienceTimeline: React.FC = () => {
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1">
                       <span className="text-lg md:text-xl font-bold text-white group-hover:text-sky-300 transition-colors">
-                        {exp.role}
+                        {t(exp.role)}
                       </span>
                       <span className="text-slate-400">@</span>
                       <span className="text-base md:text-lg font-bold text-sky-400">
@@ -76,13 +76,13 @@ export const ExperienceTimeline: React.FC = () => {
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5 text-slate-500" />
-                        {exp.period}
+                        {t(exp.period)}
                       </span>
                       <span className="flex items-center gap-1">
                         <MapPin className="w-3.5 h-3.5 text-slate-500" />
-                        {exp.location}
+                        {t(exp.location)}
                       </span>
-                      <span className="text-slate-500">• {exp.type}</span>
+                      <span className="text-slate-500">• {t(exp.type)}</span>
                     </div>
                   </div>
 
@@ -95,7 +95,7 @@ export const ExperienceTimeline: React.FC = () => {
                       >
                         <Zap className="w-3 h-3 text-sky-400" />
                         <span>{m.value}</span>
-                        <span className="text-[0.625em] text-slate-400">{m.label}</span>
+                        <span className="text-[0.625em] text-slate-400">{t(m.label)}</span>
                       </div>
                     ))}
 
@@ -110,7 +110,7 @@ export const ExperienceTimeline: React.FC = () => {
 
                 {/* Summary */}
                 <p className="text-slate-300 text-sm mt-3 leading-relaxed">
-                  {exp.summary}
+                  {t(exp.summary)}
                 </p>
 
                 {/* Expanded content */}
@@ -119,13 +119,13 @@ export const ExperienceTimeline: React.FC = () => {
                     {/* Highlights bullet points */}
                     <div className="space-y-2.5">
                       <h4 className="text-xs font-mono text-slate-400 uppercase tracking-wider">
-                        Key Responsibilities & Architectural Impact
+                        {t('Key Responsibilities & Architectural Impact')}
                       </h4>
                       <ul className="space-y-2">
                         {exp.highlights.map((h, i) => (
                           <li key={i} className="flex items-start gap-2.5 text-xs md:text-sm text-slate-300">
                             <CheckCircle className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                            <span>{h}</span>
+                            <span>{t(h)}</span>
                           </li>
                         ))}
                       </ul>
@@ -134,7 +134,7 @@ export const ExperienceTimeline: React.FC = () => {
                     {/* Tech Badges */}
                     <div className="pt-2">
                       <h4 className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">
-                        Technologies Deployed
+                        {t('Technologies Deployed')}
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
                         {exp.technologies.map((t) => (

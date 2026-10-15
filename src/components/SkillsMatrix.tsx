@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { SKILL_CATEGORIES } from '../data/resumeData';
 import { Wrench, Search, Sparkles } from 'lucide-react';
-import { soundFx } from '../utils/soundEffects';
+import { useTranslate } from '../i18n';
 
 export const SkillsMatrix: React.FC = () => {
+  const t = useTranslate();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -11,7 +12,6 @@ export const SkillsMatrix: React.FC = () => {
 
   const handleCategoryChange = (cat: string) => {
     setSelectedCategory(cat);
-    soundFx.playClick(600);
   };
 
   const filteredCategories = SKILL_CATEGORIES.map((cat) => {
@@ -37,13 +37,13 @@ export const SkillsMatrix: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono uppercase tracking-wider mb-2">
             <Wrench className="w-3.5 h-3.5" />
-            <span>Technical Capabilities & Mastery</span>
+            <span>{t('Technical Capabilities & Mastery')}</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-            Engineering Skill Matrix
+            {t('Engineering Skill Matrix')}
           </h2>
           <p className="text-slate-400 text-sm md:text-base max-w-2xl mt-1">
-            Deep JavaScript & TypeScript proficiency across runtimes, rendering contexts, component architectures, and scalable cloud systems.
+            {t('Deep JavaScript & TypeScript proficiency across runtimes, rendering contexts, component architectures, and scalable cloud systems.')}
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export const SkillsMatrix: React.FC = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Filter skills (e.g. WebGL, React)..."
+            placeholder={t('Filter skills (e.g. WebGL, React)...')}
             className="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 font-mono"
           />
         </div>
@@ -74,7 +74,7 @@ export const SkillsMatrix: React.FC = () => {
                   : 'bg-slate-900/60 text-slate-400 border border-slate-800 hover:text-slate-200 hover:bg-slate-800'
               }`}
             >
-              {cat}
+              {t(cat)}
             </button>
           );
         })}
@@ -91,7 +91,7 @@ export const SkillsMatrix: React.FC = () => {
             >
               <h3 className="text-base font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                {group.category}
+                {t(group.category)}
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -104,30 +104,30 @@ export const SkillsMatrix: React.FC = () => {
                       <div className="flex items-center justify-between mb-1.5">
                         <div className="flex items-center gap-2">
                           <span className="text-sm font-semibold text-slate-200 group-hover:text-emerald-400 transition-colors">
-                            {skill.name}
+                            {t(skill.name)}
                           </span>
                           {skill.featured && (
                             <span className="flex items-center gap-1 text-[0.625em] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                               <Sparkles className="w-2.5 h-2.5" />
-                              Expertise
+                              {t('Expertise')}
                             </span>
                           )}
                         </div>
 
                         <span className="text-xs font-mono text-slate-400">
-                          {skill.experienceYears}
+                          {t(skill.experienceYears.replace(' yrs', ' years'))}
                         </span>
                       </div>
 
                       <p className="text-xs text-slate-400 leading-relaxed mb-3">
-                        {skill.description}
+                        {t(skill.description)}
                       </p>
                     </div>
 
                     {/* Progress Level Bar */}
                     <div>
                       <div className="flex items-center justify-between text-[0.6875em] font-mono text-slate-500 mb-1">
-                        <span>Proficiency Index</span>
+                        <span>{t('Proficiency Index')}</span>
                         <span className="text-emerald-400 font-semibold">{skill.level}%</span>
                       </div>
                       <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
