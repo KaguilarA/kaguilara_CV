@@ -107,7 +107,7 @@ export const SkillsMatrix: React.FC = () => {
                             {skill.name}
                           </span>
                           {skill.featured && (
-                            <span className="flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                            <span className="flex items-center gap-1 text-[0.625em] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                               <Sparkles className="w-2.5 h-2.5" />
                               Expertise
                             </span>
@@ -126,7 +126,7 @@ export const SkillsMatrix: React.FC = () => {
 
                     {/* Progress Level Bar */}
                     <div>
-                      <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-1">
+                      <div className="flex items-center justify-between text-[0.6875em] font-mono text-slate-500 mb-1">
                         <span>Proficiency Index</span>
                         <span className="text-emerald-400 font-semibold">{skill.level}%</span>
                       </div>

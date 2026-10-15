@@ -41,7 +41,7 @@ export const JsonViewModal: React.FC<JsonViewModalProps> = ({ isOpen, onClose })
           <div className="flex items-center gap-2 text-slate-200">
             <FileJson className="w-4 h-4 text-amber-400" />
             <span className="font-bold">kevin-aguilar-resume-schema.json</span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">JSON-LD / Schema.org</span>
+            <span className="text-[0.625em] px-2 py-0.5 rounded bg-slate-800 text-slate-400">JSON-LD / Schema.org</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -70,7 +70,7 @@ export const JsonViewModal: React.FC<JsonViewModalProps> = ({ isOpen, onClose })
         </div>
 
         {/* Footer */}
-        <div className="px-5 py-2.5 bg-slate-900/90 border-t border-slate-800 text-slate-500 text-[11px] flex items-center justify-between">
+        <div className="px-5 py-2.5 bg-slate-900/90 border-t border-slate-800 text-slate-500 text-[0.6875em] flex items-center justify-between">
           <span>Machine-readable Senior Software Engineer Profile</span>
           <span className="text-sky-400">UTF-8 • Valid JSON</span>
         </div>

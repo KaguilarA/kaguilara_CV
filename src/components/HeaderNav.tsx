@@ -39,8 +39,8 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           }}
           className="flex items-center gap-2.5 cursor-pointer group"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 p-[1px] shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
-            <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center font-black text-white text-xs font-mono tracking-tighter">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 p-[0.0625em] shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-full h-full bg-slate-950 rounded-[0.6875em] flex items-center justify-center font-black text-white text-xs font-mono tracking-tighter">
               KA
             </div>
           </div>

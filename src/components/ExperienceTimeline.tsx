@@ -37,7 +37,7 @@ export const ExperienceTimeline: React.FC = () => {
             <div key={exp.id} className="relative group">
               {/* Timeline marker */}
               <div
-                className={`absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
+                className={`absolute -left-[1.9375em] md:-left-[2.4375em] top-1.5 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
                   isCurrent
                     ? 'bg-sky-400 border-sky-300 ring-4 ring-sky-500/20 shadow-lg shadow-sky-500/50'
                     : 'bg-slate-900 border-slate-600 group-hover:border-sky-400 group-hover:scale-110'
@@ -67,7 +67,7 @@ export const ExperienceTimeline: React.FC = () => {
                         {exp.company}
                       </span>
                       {isCurrent && (
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold animate-pulse">
+                        <span className="px-2.5 py-0.5 rounded-full text-[0.6875em] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold animate-pulse">
                           Current Role
                         </span>
                       )}
@@ -95,7 +95,7 @@ export const ExperienceTimeline: React.FC = () => {
                       >
                         <Zap className="w-3 h-3 text-sky-400" />
                         <span>{m.value}</span>
-                        <span className="text-[10px] text-slate-400">{m.label}</span>
+                        <span className="text-[0.625em] text-slate-400">{m.label}</span>
                       </div>
                     ))}
 

@@ -177,7 +177,7 @@ export const InteractiveCanvas: React.FC = () => {
           // Render label for key architecture nodes
           if (p.label) {
             ctx.fillStyle = 'rgba(226, 232, 240, 0.75)';
-            ctx.font = '10px ui-monospace, monospace';
+            ctx.font = '0.625em ui-monospace, monospace';
             ctx.fillText(p.label, p.x + 8, p.y + 3);
           }
 
@@ -259,7 +259,7 @@ export const InteractiveCanvas: React.FC = () => {
   return (
     <div className="space-y-2.5">
       <div
-        className="relative w-full h-[400px] md:h-[480px] rounded-2xl overflow-hidden border border-slate-800 bg-[#090a0f] shadow-2xl group transition-all duration-300"
+        className="relative w-full h-[25em] md:h-[30em] rounded-2xl overflow-hidden border border-slate-800 bg-[#090a0f] shadow-2xl group transition-all duration-300"
       >
         <canvas ref={canvasRef} className="w-full h-full block cursor-crosshair" />
 

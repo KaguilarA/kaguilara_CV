@@ -81,7 +81,7 @@ export const LibrariesShowcase: React.FC = () => {
                     href={lib.npmUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-2.5 py-1 rounded-lg bg-rose-950/40 border border-rose-800/60 text-rose-300 text-[11px] font-mono hover:bg-rose-900/50 transition-colors flex items-center gap-1.5"
+                    className="px-2.5 py-1 rounded-lg bg-rose-950/40 border border-rose-800/60 text-rose-300 text-[0.6875em] font-mono hover:bg-rose-900/50 transition-colors flex items-center gap-1.5"
                   >
                     <span>npm: {lib.packageName}</span>
                     <ExternalLink className="w-3 h-3 text-rose-400" />
@@ -101,7 +101,7 @@ export const LibrariesShowcase: React.FC = () => {
 
                   <button
                     onClick={() => handleCopyCmd(lib.id, lib.installCmd)}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-200 transition-colors cursor-pointer"
+                    className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-[0.6875em] text-slate-200 transition-colors cursor-pointer"
                     title="Copy install command"
                   >
                     {isCopied ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
@@ -142,14 +142,14 @@ export const LibrariesShowcase: React.FC = () => {
                     </button>
                   </div>
 
-                  <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-slate-500">
+                  <div className="hidden sm:flex items-center gap-1.5 text-[0.6875em] font-mono text-slate-500">
                     <span>100% Strict TypeScript</span>
                   </div>
                 </div>
 
                 {/* Tab Content */}
                 {currentTab === 'code' ? (
-                  <div className="p-3.5 rounded-xl bg-[#07090e] border border-slate-850 font-mono text-[11px] text-cyan-300/90 overflow-x-auto leading-relaxed shadow-inner">
+                  <div className="p-3.5 rounded-xl bg-[#07090e] border border-slate-850 font-mono text-[0.6875em] text-cyan-300/90 overflow-x-auto leading-relaxed shadow-inner">
                     <pre className="whitespace-pre">{lib.codeSample}</pre>
                   </div>
                 ) : (
@@ -170,7 +170,7 @@ export const LibrariesShowcase: React.FC = () => {
                   {lib.tags.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 rounded bg-slate-800/80 text-[10px] text-slate-300 border border-slate-700/60"
+                      className="px-2 py-0.5 rounded bg-slate-800/80 text-[0.625em] text-slate-300 border border-slate-700/60"
                     >
                       #{t}
                     </span>

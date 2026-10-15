@@ -94,11 +94,11 @@ export const GamesShowcase: React.FC = () => {
 
               {/* Badges on image */}
               <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-950/80 text-pink-400 border border-pink-500/40 backdrop-blur-md">
+                <span className="px-2 py-0.5 rounded-md text-[0.625em] font-mono font-bold uppercase tracking-wider bg-slate-950/80 text-pink-400 border border-pink-500/40 backdrop-blur-md">
                   {game.type}
                 </span>
                 {game.lines && (
-                  <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-slate-950/80 text-sky-400 border border-sky-500/40 backdrop-blur-md">
+                  <span className="px-2 py-0.5 rounded-md text-[0.625em] font-mono bg-slate-950/80 text-sky-400 border border-sky-500/40 backdrop-blur-md">
                     {game.lines} Lines
                   </span>
                 )}
@@ -117,7 +117,7 @@ export const GamesShowcase: React.FC = () => {
                 {game.title}
               </h3>
 
-              <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 pt-1 border-t border-slate-800/80">
+              <div className="flex items-center justify-between text-[0.6875em] font-mono text-slate-400 pt-1 border-t border-slate-800/80">
                 <span className="flex items-center gap-1 text-slate-400">
                   <Cpu className="w-3 h-3 text-sky-400" />
                   60 FPS Canvas

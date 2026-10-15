@@ -38,7 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           <Terminal className="w-3.5 h-3.5 text-sky-400" />
           <span>Quick Launcher</span>
-          <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 border border-slate-700">
+          <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-[0.625em] text-slate-400 border border-slate-700">
             ⌘K / Ctrl+K
           </kbd>
         </button>

@@ -25,15 +25,15 @@ export const ArchitectureShowcase: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               <div className="p-2.5 rounded-lg bg-sky-950/40 border border-sky-800/60 text-center">
                 <span className="text-sky-300 font-semibold block mb-1">Remote App: Checkout</span>
-                <span className="text-[10px] text-slate-400">Independent CI/CD • Deployed on S3</span>
+                <span className="text-[0.625em] text-slate-400">Independent CI/CD • Deployed on S3</span>
               </div>
               <div className="p-2.5 rounded-lg bg-purple-950/40 border border-purple-800/60 text-center">
                 <span className="text-purple-300 font-semibold block mb-1">Remote App: Portal</span>
-                <span className="text-[10px] text-slate-400">Independent CI/CD • Angular 17</span>
+                <span className="text-[0.625em] text-slate-400">Independent CI/CD • Angular 17</span>
               </div>
               <div className="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-800/60 text-center">
                 <span className="text-emerald-300 font-semibold block mb-1">Remote App: Auth</span>
-                <span className="text-[10px] text-slate-400">Shared Session & JWT Broker</span>
+                <span className="text-[0.625em] text-slate-400">Shared Session & JWT Broker</span>
               </div>
             </div>
             <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-700/80 text-center flex items-center justify-center gap-3 text-slate-300">
@@ -52,7 +52,7 @@ export const ArchitectureShowcase: React.FC = () => {
                   <span className="w-2 h-2 rounded-full bg-rose-500" />
                   Legacy Zone.js (Dirty Checking)
                 </div>
-                <div className="text-[11px] space-y-1 text-slate-400">
+                <div className="text-[0.6875em] space-y-1 text-slate-400">
                   <p>• Asynchronous monkey-patching</p>
                   <p>• Full component tree traversal</p>
                   <p>• Re-evaluates 1,000+ expressions</p>
@@ -64,7 +64,7 @@ export const ArchitectureShowcase: React.FC = () => {
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   Signals Fine-Grained Reactivity (Kevin)
                 </div>
-                <div className="text-[11px] space-y-1 text-slate-300">
+                <div className="text-[0.6875em] space-y-1 text-slate-300">
                   <p>• Surgical O(1) dependency subscriptions</p>
                   <p>• Glitch-free synchronous topological sort</p>
                   <p>• Modern control flow (@if, @for)</p>
@@ -85,20 +85,20 @@ export const ArchitectureShowcase: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-1 text-center">
               <div className="p-2 rounded bg-slate-900 border border-slate-800 w-full">
                 <span className="text-sky-300 block font-semibold">requestAnimFrame</span>
-                <span className="text-[10px] text-slate-400">16.6ms Target Tick</span>
+                <span className="text-[0.625em] text-slate-400">16.6ms Target Tick</span>
               </div>
               <ArrowRight className="w-4 h-4 text-slate-600 hidden sm:block" />
               <div className="p-2 rounded bg-slate-900 border border-slate-800 w-full">
                 <span className="text-purple-300 block font-semibold">Spatial Quad-Tree</span>
-                <span className="text-[10px] text-slate-400">Broad-Phase Collision</span>
+                <span className="text-[0.625em] text-slate-400">Broad-Phase Collision</span>
               </div>
               <ArrowRight className="w-4 h-4 text-slate-600 hidden sm:block" />
               <div className="p-2 rounded bg-slate-900 border border-slate-800 w-full">
                 <span className="text-emerald-300 block font-semibold">PIXI / WebGL Batch</span>
-                <span className="text-[10px] text-slate-400">Pooled Vertex Buffers</span>
+                <span className="text-[0.625em] text-slate-400">Pooled Vertex Buffers</span>
               </div>
             </div>
-            <div className="text-[10px] text-slate-400 text-center pt-2">
+            <div className="text-[0.625em] text-slate-400 text-center pt-2">
               Zero Garbage Collection spikes via static Object Pooling & memory pre-allocation.
             </div>
           </div>
@@ -110,15 +110,15 @@ export const ArchitectureShowcase: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <div className="p-2 rounded-lg bg-indigo-950/30 border border-indigo-800/60 text-center">
                 <span className="text-indigo-300 block font-semibold mb-1">Design Tokens</span>
-                <span className="text-[10px] text-slate-400">Semantic Colors, Spacing, Typography, Elevations</span>
+                <span className="text-[0.625em] text-slate-400">Semantic Colors, Spacing, Typography, Elevations</span>
               </div>
               <div className="p-2 rounded-lg bg-cyan-950/30 border border-cyan-800/60 text-center">
                 <span className="text-cyan-300 block font-semibold mb-1">Headless Logic</span>
-                <span className="text-[10px] text-slate-400">ARIA State, Focus Traps, Keyboard Navigation</span>
+                <span className="text-[0.625em] text-slate-400">ARIA State, Focus Traps, Keyboard Navigation</span>
               </div>
               <div className="p-2 rounded-lg bg-pink-950/30 border border-pink-800/60 text-center">
                 <span className="text-pink-300 block font-semibold mb-1">Multi-App Pack</span>
-                <span className="text-[10px] text-slate-400">Adopted across 5+ Production Enterprise Suites</span>
+                <span className="text-[0.625em] text-slate-400">Adopted across 5+ Production Enterprise Suites</span>
               </div>
             </div>
             <div className="p-2 rounded bg-slate-900 border border-slate-800 text-center text-emerald-400 flex items-center justify-center gap-2">
@@ -163,7 +163,7 @@ export const ArchitectureShowcase: React.FC = () => {
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-sky-400 border border-slate-700">
+                <span className="text-[0.6875em] font-mono px-2 py-0.5 rounded bg-slate-800 text-sky-400 border border-slate-700">
                   {item.company}
                 </span>
                 {isActive && <Sparkles className="w-3.5 h-3.5 text-sky-400 animate-pulse" />}

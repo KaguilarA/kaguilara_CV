@@ -7,9 +7,9 @@ const OptimizedCell = memo(({ id, value, renderCountRef }: { id: number; value: 
   renderCountRef.current++;
   return (
     <div className="p-2.5 rounded-lg bg-slate-900/90 border border-emerald-900/40 text-center font-mono">
-      <div className="text-[10px] text-slate-400">Node #{id}</div>
+      <div className="text-[0.625em] text-slate-400">Node #{id}</div>
       <div className="text-base font-bold text-emerald-400">{value}</div>
-      <div className="text-[9px] text-emerald-500/80">Memoized (O(1))</div>
+      <div className="text-[0.5625em] text-emerald-500/80">Memoized (O(1))</div>
     </div>
   );
 });
@@ -19,9 +19,9 @@ const UnoptimizedCell = ({ id, value, renderCountRef }: { id: number; value: num
   renderCountRef.current++;
   return (
     <div className="p-2.5 rounded-lg bg-slate-900/90 border border-rose-900/40 text-center font-mono">
-      <div className="text-[10px] text-slate-400">Node #{id}</div>
+      <div className="text-[0.625em] text-slate-400">Node #{id}</div>
       <div className="text-base font-bold text-rose-400">{value}</div>
-      <div className="text-[9px] text-rose-500/80">Waste Re-render</div>
+      <div className="text-[0.5625em] text-rose-500/80">Waste Re-render</div>
     </div>
   );
 };
@@ -148,27 +148,27 @@ export const LivePerformanceDemo: React.FC = () => {
         {/* Live Metrics HUD */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 font-mono">
-            <div className="text-[11px] text-slate-500">Events Streamed</div>
+            <div className="text-[0.6875em] text-slate-500">Events Streamed</div>
             <div className="text-xl font-bold text-sky-400">{globalTick}</div>
-            <div className="text-[10px] text-slate-500">Mutations per sec: ~8</div>
+            <div className="text-[0.625em] text-slate-500">Mutations per sec: ~8</div>
           </div>
 
           <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 font-mono">
-            <div className="text-[11px] text-slate-500">Mutated Target Cell</div>
+            <div className="text-[0.6875em] text-slate-500">Mutated Target Cell</div>
             <div className="text-xl font-bold text-purple-400">Node #{targetIndex}</div>
-            <div className="text-[10px] text-slate-500">Value: {dataStream[targetIndex]}</div>
+            <div className="text-[0.625em] text-slate-500">Value: {dataStream[targetIndex]}</div>
           </div>
 
           <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 font-mono">
-            <div className="text-[11px] text-slate-500">Optimized Render Count</div>
+            <div className="text-[0.6875em] text-slate-500">Optimized Render Count</div>
             <div className="text-xl font-bold text-emerald-400">{optimizedRendersRef.current}</div>
-            <div className="text-[10px] text-emerald-500">Only updated leaf nodes</div>
+            <div className="text-[0.625em] text-emerald-500">Only updated leaf nodes</div>
           </div>
 
           <div className="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 font-mono">
-            <div className="text-[11px] text-slate-500">Unoptimized Render Count</div>
+            <div className="text-[0.6875em] text-slate-500">Unoptimized Render Count</div>
             <div className="text-xl font-bold text-rose-400">{unoptimizedRendersRef.current}</div>
-            <div className="text-[10px] text-rose-500">6x Cascade re-renders</div>
+            <div className="text-[0.625em] text-rose-500">6x Cascade re-renders</div>
           </div>
         </div>
 

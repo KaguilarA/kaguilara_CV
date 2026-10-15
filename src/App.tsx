@@ -58,9 +58,9 @@ export function App() {
     <div className="min-h-screen bg-[#090a0f] text-slate-100 flex flex-col font-sans selection:bg-purple-500/30 selection:text-sky-300">
       {/* Background ambient mesh gradients */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-sky-600/10 rounded-full blur-[128px] animate-pulse-glow" />
-        <div className="absolute top-1/3 -right-40 w-96 h-96 bg-purple-600/10 rounded-full blur-[128px] animate-pulse-glow" />
-        <div className="absolute -bottom-40 left-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-[128px] animate-pulse-glow" />
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-sky-600/10 rounded-full blur-[8em] animate-pulse-glow" />
+        <div className="absolute top-1/3 -right-40 w-96 h-96 bg-purple-600/10 rounded-full blur-[8em] animate-pulse-glow" />
+        <div className="absolute -bottom-40 left-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-[8em] animate-pulse-glow" />
       </div>
 
       {/* Sticky Navigation Header */}

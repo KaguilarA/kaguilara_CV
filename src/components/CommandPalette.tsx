@@ -282,7 +282,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
                   <div className="flex items-center gap-2">
                     {item.shortcut && (
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
+                      <span className="text-[0.6875em] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
                         {item.shortcut}
                       </span>
                     )}
