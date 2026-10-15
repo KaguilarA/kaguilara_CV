@@ -23,15 +23,15 @@
 
 /* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 0.5em;
+  height: 0.5em;
 }
 ::-webkit-scrollbar-track {
   background: #090d16;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
-  border-radius: 4px;
+  border-radius: 0.25em;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
@@ -56,30 +56,198 @@
   animation: fadeIn 0.15s ease-out forwards;
 }
 
-/* High Quality Print Stylesheet for Executive Resume Export */
+/* Resume export: the on-screen page is replaced by a clean, print-ready CV. */
+#resume-print {
+  display: none;
+}
+
 @media print {
   @page {
-    margin: 1.5cm;
+    margin: 3.72em 4.32em;
     size: letter portrait;
   }
   body {
-    background: #ffffff !important;
-    color: #1e293b !important;
+    margin: 0 !important;
+    background: #fff !important;
+    color: #273449 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 0.758333em !important;
+    line-height: 1.31 !important;
+    overflow: visible !important;
   }
-  header, footer, canvas, button, #profiler, .pointer-events-none {
+
+  #root {
     display: none !important;
   }
-  * {
+
+  #resume-print {
+    display: block !important;
+    width: 100%;
+    color: #273449 !important;
+    background: #fff !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #resume-print * {
+    box-sizing: border-box;
+  }
+
+  #resume-print h1 {
+    margin: 0;
+    color: #202b3d !important;
+    text-align: center;
+    font-size: 2.857143em;
+    line-height: 1.12;
+    font-weight: 700;
+  }
+
+  #resume-print a {
+    color: inherit !important;
+    text-decoration: none;
+  }
+
+  #resume-print .resume-contact {
+    margin: 3.84em 0 1.76em;
+    text-align: center;
+    font-size: 0.989011em;
+  }
+
+  #resume-print .resume-role {
+    margin: 0 0 2.16em;
+    color: #2563eb !important;
+    text-align: center;
+    font-size: 1.208791em;
+    font-weight: 700;
+  }
+
+  #resume-print .resume-rule {
+    height: 0.2475em;
+    margin-bottom: 0.2475em;
+    border-bottom: 0.0824em solid #8792a3;
+    background: #172238 !important;
+  }
+
+  #resume-print .resume-summary {
+    margin: 1.92em 0 1.6em;
+    font-size: 0.989011em;
+    font-style: italic;
+    line-height: 1.36;
+  }
+
+  #resume-print .resume-section {
+    margin: 0 0 1.9em;
+    break-inside: auto;
+  }
+
+  #resume-print h2 {
+    margin: 0 0 0.576em;
     color: #1e293b !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border-color: #e2e8f0 !important;
+    font-size: 1.098901em;
+    font-weight: 700;
   }
-  h1 {
-    color: #0369a1 !important;
-    font-size: 28pt !important;
+
+  #resume-print .resume-section-rule {
+    margin-bottom: 0.712em;
+    border-top: 0.0824em solid #cbd5e1;
   }
-  h2, h3 {
-    color: #0f172a !important;
+
+  #resume-print .resume-competencies p {
+    margin: 0 0 0.356em;
+  }
+
+  #resume-print .resume-experience {
+    margin: 0 0 1.425em;
+    break-inside: avoid;
+  }
+
+  #resume-print .resume-entry-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.187em;
+    margin-bottom: 0.356em;
+  }
+
+  #resume-print h3 {
+    margin: 0;
+    color: #172238 !important;
+    font-size: 1.032967em;
+    font-weight: 700;
+  }
+
+  #resume-print .resume-entry-heading em {
+    color: #2563eb !important;
+    font-style: normal;
+  }
+
+  #resume-print time {
+    color: #64748b !important;
+    white-space: nowrap;
+    font-size: 0.89011em;
+  }
+
+  #resume-print ul {
+    margin: 0;
+    padding-left: 1.425em;
+  }
+
+  #resume-print li {
+    margin: 0 0 0.277em;
+  }
+
+  #resume-print .resume-technologies {
+    margin: 0.225em 0 0;
+    color: #475569 !important;
+    font-size: 0.879121em;
+  }
+
+  #resume-print .resume-projects,
+  #resume-print .resume-education,
+  #resume-print .resume-languages {
+    break-inside: avoid;
+  }
+
+  #resume-print .resume-project {
+    margin-bottom: 1.03em;
+  }
+
+  #resume-print .resume-project p {
+    margin: 0.277em 0 0 1.425em;
+  }
+
+  #resume-print .resume-subheading {
+    margin: 0.766em 0 0.345em;
+    color: #334155 !important;
+  }
+
+  #resume-print .resume-project-list {
+    list-style: disc;
+  }
+
+  #resume-print .resume-education ul,
+  #resume-print .resume-languages ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  #resume-print .resume-education li {
+    position: relative;
+    padding-right: 5.934em;
+  }
+
+  #resume-print .resume-education li time {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  #resume-print .resume-education a {
+    color: #2563eb !important;
+  }
+
+  #resume-print .resume-languages {
+    margin-bottom: 0;
   }
 }
