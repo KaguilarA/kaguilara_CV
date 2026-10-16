@@ -292,6 +292,12 @@ export const CERTIFICATIONS: Certification[] = [
     credentialUrl: 'https://www.udemy.com/certificate/UC-57fe4e2d-5b78-451a-a928-e117e443a114/',
   },
   {
+    title: 'Remake Retro Games with JavaScript',
+    issuer: 'Udemy',
+    year: '2026',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-e188050f-27e9-4b17-9326-392b55e389bb/',
+  },
+  {
     title: 'Learn Java Programming (From Beginner to Advanced)',
     issuer: 'Udemy',
     year: '2026',
