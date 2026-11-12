@@ -68,7 +68,7 @@ export const ExperienceTimeline: React.FC = () => {
                       </span>
                       {isCurrent && (
                         <span className="px-2.5 py-0.5 rounded-full text-[0.6875em] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold animate-pulse">
-                          Current Role
+                          {t('Current Role')}
                         </span>
                       )}
                     </div>

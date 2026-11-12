@@ -10,20 +10,20 @@ import { useTranslate } from '../i18n';
 
 const competencies = [
   {
-    label: 'JavaScript & Frameworks',
+    label: 'JavaScript & Frontend',
+    skills: SKILL_CATEGORIES[0].skills.map((skill) => skill.name),
+  },
+  {
+    label: 'MEAN Backend & Services',
     skills: SKILL_CATEGORIES[1].skills.map((skill) => skill.name),
   },
   {
     label: 'Architecture & Performance',
-    skills: SKILL_CATEGORIES[0].skills.map((skill) => skill.name),
-  },
-  {
-    label: 'Backend & Services',
-    skills: SKILL_CATEGORIES[3].skills.map((skill) => skill.name),
+    skills: SKILL_CATEGORIES[2].skills.map((skill) => skill.name),
   },
   {
     label: 'Graphics & Tools',
-    skills: SKILL_CATEGORIES[2].skills.map((skill) => skill.name),
+    skills: SKILL_CATEGORIES[3].skills.map((skill) => skill.name),
   },
 ];
 
@@ -40,7 +40,7 @@ export const ResumePrint: React.FC = () => {
         {PERSONAL_INFO.location.split(' (')[0]} · {PERSONAL_INFO.phone} ·{' '}
         <a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}</a> ·{' '}
         <a href={PERSONAL_INFO.linkedin}>linkedin.com/in/kaguilara</a> ·{' '}
-        <a href={PERSONAL_INFO.behance}>behance.net/kevinaguilar231</a>
+        <a href={PERSONAL_INFO.github}>github.com/KaguilarA</a>
       </p>
       <p className="resume-role">{t(PERSONAL_INFO.title).toUpperCase()}</p>
       <div className="resume-rule" />
@@ -69,7 +69,7 @@ export const ResumePrint: React.FC = () => {
             <time>{t(experience.period)}</time>
           </div>
           <ul>
-            {experience.highlights.slice(0, 4).map((highlight, index) => (
+            {experience.highlights.slice(0, experience.id === 'machetico' ? undefined : 4).map((highlight, index) => (
               <li key={`${experience.id}-${index}`}>{t(highlight)}</li>
             ))}
           </ul>

@@ -43,7 +43,7 @@ export const SkillsMatrix: React.FC = () => {
             {t('Engineering Skill Matrix')}
           </h2>
           <p className="text-slate-400 text-sm md:text-base max-w-2xl mt-1">
-            {t('Deep JavaScript & TypeScript proficiency across runtimes, rendering contexts, component architectures, and scalable cloud systems.')}
+            {t('JavaScript and TypeScript across the MEAN stack: Node.js APIs, Express.js services, MongoDB data, and Angular interfaces.')}
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export const SkillsMatrix: React.FC = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={t('Filter skills (e.g. WebGL, React)...')}
+            placeholder={t('Filter skills (e.g. Node.js, Angular)...')}
             className="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 font-mono"
           />
         </div>

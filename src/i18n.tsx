@@ -2,6 +2,30 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 
 export type Language = 'en' | 'es';
 const translations: Record<string, string> = {
+  "Manage deployment workflows with GitHub Actions, Cloudflare, and Render for the frontend and backend.": "Gestiono los flujos de despliegue con GitHub Actions, Cloudflare y Render para el frontend y el backend.",
+  "Implement Cloudflare Workers that send requests to reactivate the backend hosted on Render.": "Implemento Workers de Cloudflare que envían solicitudes para reactivar el backend alojado en Render.",
+
+  "Full Stack Developer & Software Architect": "Desarrollador Full Stack y Arquitecto de Software",
+  "Ongoing project": "Proyecto en desarrollo",
+  "Full stack development and software architecture for MacheTico, a multi-tenant, white-label SaaS and CRM platform for small and medium businesses in Costa Rica.": "Desarrollo full stack y arquitectura de software para MacheTico, una plataforma SaaS y CRM multi-tenant de marca blanca para pequeñas y medianas empresas de Costa Rica.",
+  "Design the multi-tenant software architecture, connecting a React frontend with a Node.js and Express backend and a MongoDB data layer.": "Diseño la arquitectura de software multi-tenant, conectando un frontend en React con un backend en Node.js y Express y una capa de datos en MongoDB.",
+  "Develop backend APIs and authentication flows with JWT, httpOnly cookies, bcrypt password hashing, and tenant-scoped access controls.": "Desarrollo APIs backend y flujos de autenticación con JWT, cookies httpOnly, contraseñas protegidas con bcrypt y controles de acceso por tenant.",
+  "Build reusable frontend interfaces and configurable branding with shared components, tenant themes, and accessible color contrast.": "Construyo interfaces frontend reutilizables y una identidad visual configurable mediante componentes compartidos, temas por tenant y contraste de color accesible.",
+  "Structure the application for multiple business types, including restaurants, clinics, hotels, and online stores, within a shared codebase.": "Estructuro la aplicación para distintos tipos de negocio, incluidos restaurantes, clínicas, hoteles y tiendas en línea, sobre una base de código compartida.",
+  "Current Role": "Rol actual",
+
+  "Senior Full Stack Developer | JavaScript, Node.js & MEAN": "Desarrollador Full Stack Senior | JavaScript, Node.js y MEAN",
+  "Senior Full Stack Developer with 8+ years in the JavaScript ecosystem, specializing in the MEAN stack: MongoDB, Express.js, Angular, and Node.js. Strong command of JavaScript and TypeScript across backend services and frontend applications, from REST APIs and data integration to reusable components and reactive interfaces. Author of open-source Express.js utilities for MongoDB-backed applications, with experience in React, cloud delivery, and web performance optimization.": "Desarrollador Full Stack Senior con más de 8 años en el ecosistema JavaScript, especializado en el stack MEAN: MongoDB, Express.js, Angular y Node.js. Sólido dominio de JavaScript y TypeScript tanto en servicios backend como en aplicaciones frontend: APIs REST, integración de datos, componentes reutilizables e interfaces reactivas. Autor de utilidades de código abierto para aplicaciones Express.js con MongoDB, con experiencia adicional en React, distribución en la nube y optimización del rendimiento web.",
+  "Built reusable Angular and React interfaces and collaborated on Node.js REST API design, connecting enterprise frontend architecture with backend data contracts.": "Desarrollé interfaces reutilizables con Angular y React y colaboré en el diseño de APIs REST con Node.js, conectando la arquitectura frontend empresarial con los contratos de datos del backend.",
+  "Developed JavaScript and React web applications integrated with AWS serverless backends and MongoDB/MySQL datastores.": "Desarrollé aplicaciones web con JavaScript y React integradas con backends serverless en AWS y bases de datos MongoDB/MySQL.",
+  "Available for Full Stack / Node.js Opportunities": "Disponible para oportunidades Full Stack y Node.js",
+  "Explore My Experience": "Explorar mi experiencia",
+  "JavaScript and TypeScript across the MEAN stack: Node.js APIs, Express.js services, MongoDB data, and Angular interfaces.": "JavaScript y TypeScript en el stack MEAN: APIs con Node.js, servicios Express.js, datos en MongoDB e interfaces Angular.",
+  "Filter skills (e.g. Node.js, Angular)...": "Filtrar habilidades (p. ej., Node.js, Angular)...",
+  "Primary stack": "Stack principal",
+  "JavaScript & Frontend": "JavaScript y frontend",
+  "MEAN Backend & Services": "Backend MEAN y servicios",
+
   'Architecture':'Arquitectura','Experience':'Experiencia','Education':'Educación','Skills':'Habilidades','Libraries':'Bibliotecas','Games':'Juegos','Profiler':'Perfilador',
   'Available for Senior / Staff / Architecture Opportunities':'Disponible para oportunidades Senior, Staff y de Arquitectura','Quick Launcher':'Acceso rápido','Explore Architecture Blueprints':'Explorar diseños de arquitectura','GitHub Profile':'Perfil de GitHub','Click to copy email address':'Haz clic para copiar el correo','Email Copied!':'¡Correo copiado!','Print or Save PDF':'Imprimir o guardar PDF','Download CV':'Descargar CV',
   'Senior JavaScript Engineer & Systems Architect':'Ingeniero Senior de JavaScript y Arquitecto de Sistemas',
@@ -95,10 +119,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
   useEffect(() => {
     document.documentElement.lang = language;
-    const title = language === 'es' ? 'Kevin Aguilar | Ingeniero Senior de JavaScript y Arquitecto de Sistemas' : 'Kevin Aguilar | Senior JavaScript Engineer & Systems Architect';
+    const title = language === 'es' ? 'Kevin Aguilar | Desarrollador Full Stack Senior | Node.js y MEAN' : 'Kevin Aguilar | Senior Full Stack Developer | Node.js & MEAN';
     const description = language === 'es'
-      ? 'Ingeniero Senior de JavaScript con más de 8 años de experiencia en React, Angular, TypeScript, arquitectura de sistemas, rendimiento web y motores de renderizado.'
-      : 'Senior JavaScript Engineer with 8+ years of experience in React, Angular, TypeScript, systems architecture, web performance, and rendering engines.';
+      ? 'Desarrollador Full Stack Senior especializado en JavaScript, TypeScript y MEAN: MongoDB, Express.js, Angular y Node.js. APIs REST, backend y frontend.'
+      : 'Senior Full Stack Developer specializing in JavaScript, TypeScript, and MEAN: MongoDB, Express.js, Angular, and Node.js. REST APIs, backend, and frontend.';
     document.title = title;
     const setMeta = (selector: string, attribute: string, value: string) => {
       const element = document.head.querySelector<HTMLMetaElement>(selector);

@@ -1,3 +1,27 @@
+export interface PersonalInfo {
+  name: string;
+  title: string;
+  location: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  behance: string;
+  github: string;
+  summary: string;
+  languages: { name: string; proficiency: string }[];
+  stats: { label: string; value: string }[];
+}
+
+export interface ResumeData {
+  personalInfo: PersonalInfo;
+  experiences: Experience[];
+  architectureShowcase: ArchitectureItem[];
+  skillCategories: SkillCategory[];
+  certifications: Certification[];
+  coinboxGames: GameProject[];
+  openSourceLibraries: OpenSourceLibrary[];
+}
+
 export interface Experience {
   id: string;
   role: string;

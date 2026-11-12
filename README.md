@@ -4,6 +4,22 @@ High-performance, futuristic portfolio & interactive CV application built with R
 
 ---
 
+## CV content
+
+All content previously defined in `src/data/resumeData.ts` lives in
+`src/data/resumeData.json`: personal information, experience, architecture,
+skills, certifications, games, and open-source libraries. Edit this JSON to
+update those sections or copy it into a database or another service.
+
+`src/types/resume.ts` defines the `ResumeData` contract, and
+`src/data/resumeData.ts` keeps the existing typed exports for the components.
+The JSON is currently bundled with the application, so publishing changes still
+requires a build. Backend loading, authentication, and editing are future work.
+Spanish translations remain in `src/i18n.tsx`; update them when changing
+translated content.
+
+---
+
 ## 🚀 Automated Deployment with GitHub Actions
 
 This repository includes a pre-configured GitHub Actions workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) that builds and deploys the site to **GitHub Pages** on every push to `main`.

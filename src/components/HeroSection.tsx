@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono shadow-sm">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          <span>{t('Available for Senior / Staff / Architecture Opportunities')}</span>
+          <span>{t('Available for Full Stack / Node.js Opportunities')}</span>
         </div>
 
       </div>
@@ -65,13 +65,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {t(PERSONAL_INFO.summary)}
         </p>
 
+        <ul aria-label={t('Primary stack')} className="flex flex-wrap gap-2">
+          {['JavaScript', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Angular'].map((technology) => (
+            <li key={technology} className="rounded-lg border border-sky-500/30 bg-sky-500/10 px-3 py-1.5 text-sm font-mono text-sky-200">
+              {technology}
+            </li>
+          ))}
+        </ul>
+
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <button
-            onClick={() => onSelectSection('architecture')}
+            onClick={() => onSelectSection('experience')}
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-sky-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
-            <span>{t('Explore Architecture Blueprints')}</span>
+            <span>{t('Explore My Experience')}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 
