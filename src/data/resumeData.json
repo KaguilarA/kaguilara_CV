@@ -8,7 +8,7 @@
     "linkedin": "https://linkedin.com/in/kaguilara",
     "behance": "https://www.behance.net/kevinaguilar231",
     "github": "https://github.com/KaguilarA",
-    "summary": "Senior Full Stack Developer with 8+ years in the JavaScript ecosystem, specializing in the MEAN stack: MongoDB, Express.js, Angular, and Node.js. Strong command of JavaScript and TypeScript across backend services and frontend applications, from REST APIs and data integration to reusable components and reactive interfaces. Author of open-source Express.js utilities for MongoDB-backed applications, with experience in React, cloud delivery, and web performance optimization.",
+    "summary": "Senior Full Stack Developer with 8+ years in JavaScript and TypeScript, specializing in Angular, Node.js, Express.js, and MongoDB. Project work includes transactional commerce and inventory (Taurus), WhatsApp/email integrations (Megaphone), and case management with PDF/DOCX automation (Folio). Design layered APIs, data models, session-based access controls, reactive interfaces, SSR, and CI delivery workflows. Author of open-source Express.js utilities, with additional experience in React, enterprise frontend architecture, and rendering performance.",
     "languages": [
       {
         "name": "Spanish",
@@ -39,6 +39,103 @@
     ]
   },
   "experiences": [
+    {
+      "id": "taurus",
+      "role": "Full Stack Developer & Software Architect",
+      "company": "Taurus",
+      "period": "Independent project work",
+      "location": "Costa Rica",
+      "type": "Project Work",
+      "isCurrent": false,
+      "summary": "Modular business platform connecting an Angular application to a TypeScript REST API for catalog, inventory, sales, buyer checkout, and QR table ordering.",
+      "highlights": [
+        "Build Angular 22 standalone interfaces with Signals, signal-based HTTP resources, lazy feature routes, reusable form controls, and configurable business branding.",
+        "Structure an Express 5 and MongoDB backend with separated routes, controllers, domain services, and a central OWL model registry; reuse the code across business deployments with separate databases.",
+        "Coordinate stock movements, sales, and checkout with MongoDB transactions, server-side pricing, revision checks, and idempotency keys to prevent duplicate inventory reservations.",
+        "Connect kitchen and table workflows through session-authorized Socket.IO channels and MongoDB change streams; enforce staff roles and buyer ownership on the API.",
+        "Integrate ONVO payment intents and signed webhooks, Cloudinary/TinyPNG image processing, and CI checks for types, architecture, tests, and builds."
+      ],
+      "technologies": [
+        "Angular 22",
+        "TypeScript",
+        "Signals",
+        "Node.js",
+        "Express 5",
+        "MongoDB",
+        "owl-expressjs-utils",
+        "Socket.IO",
+        "ONVO",
+        "Cloudinary",
+        "GitHub Actions",
+        "Cloudflare Pages",
+        "Render"
+      ]
+    },
+    {
+      "id": "megaphone",
+      "role": "Full Stack Developer & Software Architect",
+      "company": "Megaphone Messenger",
+      "period": "Independent project work",
+      "location": "Costa Rica",
+      "type": "Project Work",
+      "isCurrent": false,
+      "summary": "Full stack messaging application for contact management, multi-number WhatsApp campaigns, email, inbound messages, and per-recipient send history.",
+      "highlights": [
+        "Build an Angular 22 client with standalone components, lazy feature routes, typed API contracts, session guards, and permission-aware dashboard navigation.",
+        "Implement a TypeScript, Node.js, Express 5, and MongoDB API with MongoDB-backed sessions, owner-scoped contacts and messages, permission middleware, and action logging.",
+        "Integrate WAHA for multi-number WhatsApp messaging and inbound webhooks, plus Nodemailer for email; track per-recipient outcomes and retain request IDs across retries.",
+        "Process media with Sharp and Cloudinary, import contacts from CSV/XLSX/JSON, and protect provider credentials with server-side encryption.",
+        "Separate public Angular SSR pages from the client-rendered private dashboard, with hydration, a same-origin API proxy, and GitHub Actions delivery to Cloudflare Pages."
+      ],
+      "technologies": [
+        "Angular 22",
+        "TypeScript",
+        "Node.js",
+        "Express 5",
+        "MongoDB",
+        "Mongoose",
+        "owl-expressjs-utils",
+        "WAHA",
+        "Nodemailer",
+        "Sharp",
+        "Cloudinary",
+        "SSR",
+        "GitHub Actions",
+        "Cloudflare Pages"
+      ]
+    },
+    {
+      "id": "folio",
+      "role": "Full Stack Developer & Software Architect",
+      "company": "Folio (Lawyer-up)",
+      "period": "Independent project work",
+      "location": "Costa Rica",
+      "type": "Project Work",
+      "isCurrent": false,
+      "summary": "Legal workflow and document automation platform organizing cases, processes, clients, and versioned document drafts with controlled lawyer/client access.",
+      "highlights": [
+        "Develop an Angular 22 frontend with strict TypeScript, standalone OnPush components, Signals, httpResource, lazy routes, and responsive Tailwind CSS 4 interfaces.",
+        "Design a layered Express 5 API with domain services and a central OWL/MongoDB model registry; enforce lawyer ownership and explicit client sharing on case reads and document downloads.",
+        "Generate PDF and editable DOCX working drafts from versioned templates and validated inputs, preserving document snapshots and recording professional review.",
+        "Implement revocable HttpOnly sessions and separate account administration from legal-record access; keep private views and responses outside public SSR data transfer.",
+        "Validate access isolation, document generation, and revocation with integration tests against temporary MongoDB; build Node SSR release artifacts with GitHub Actions."
+      ],
+      "technologies": [
+        "Angular 22",
+        "TypeScript",
+        "Signals",
+        "Tailwind CSS 4",
+        "Node.js",
+        "Express 5",
+        "MongoDB",
+        "owl-expressjs-utils",
+        "docx",
+        "PDFKit",
+        "SSR",
+        "Supertest",
+        "GitHub Actions"
+      ]
+    },
     {
       "id": "machetico",
       "role": "Full Stack Developer & Software Architect",
@@ -254,6 +351,100 @@
   ],
   "architectureShowcase": [
     {
+      "id": "taurus-architecture",
+      "title": "Taurus: Transactional Commerce & Real-Time Operations",
+      "company": "Taurus",
+      "description": "A shared application codebase with isolated business deployments and transactional domain operations.",
+      "problem": "Orders, stock, payments, and kitchen views must remain consistent across concurrent staff and buyer actions.",
+      "solution": "Use layered REST endpoints and OWL-managed MongoDB transactions for writes; publish change-stream invalidations through authorized Socket.IO channels and reload state through scoped HTTP reads.",
+      "impact": "Checkout retries avoid duplicate reservations, failed stock operations roll back together, and active order views refresh from authoritative server state.",
+      "tags": [
+        "Angular 22",
+        "TypeScript",
+        "Signals",
+        "Node.js",
+        "Express 5",
+        "MongoDB",
+        "owl-expressjs-utils",
+        "Socket.IO",
+        "ONVO",
+        "Cloudinary",
+        "GitHub Actions",
+        "Cloudflare Pages",
+        "Render"
+      ],
+      "diagramType": "full-stack",
+      "layers": [
+        "Angular 22 · Signals · Catalog / Checkout / Staff",
+        "Express REST API · Sessions · Roles · Domain Services",
+        "OWL · MongoDB Transactions · Stock / Orders / Payments",
+        "Socket.IO + Change Streams · ONVO · Cloudinary"
+      ]
+    },
+    {
+      "id": "megaphone-architecture",
+      "title": "Megaphone: Messaging Integrations & Scoped Access",
+      "company": "Megaphone Messenger",
+      "description": "A permission-aware messaging backend serving an Angular dashboard and public SSR pages.",
+      "problem": "Multiple sender numbers, external providers, retries, and private contact data require explicit ownership and traceable send results.",
+      "solution": "Keep provider calls and encrypted credentials on the server, authorize contacts and messages by owner and permission, and record request IDs and recipient outcomes behind typed frontend services.",
+      "impact": "Users manage sender channels, imports, campaigns, and send history from one interface while private API data stays outside public SSR output.",
+      "tags": [
+        "Angular 22",
+        "TypeScript",
+        "Node.js",
+        "Express 5",
+        "MongoDB",
+        "Mongoose",
+        "owl-expressjs-utils",
+        "WAHA",
+        "Nodemailer",
+        "Sharp",
+        "Cloudinary",
+        "SSR",
+        "GitHub Actions",
+        "Cloudflare Pages"
+      ],
+      "diagramType": "full-stack",
+      "layers": [
+        "Angular · Public SSR / Private Dashboard",
+        "Express API · Sessions · Ownership · Permissions",
+        "MongoDB · Contacts / Messages / Recipient Outcomes",
+        "WAHA WhatsApp · SMTP / Nodemailer · Sharp / Cloudinary"
+      ]
+    },
+    {
+      "id": "folio-architecture",
+      "title": "Folio: Case Access & Versioned Document Generation",
+      "company": "Folio (Lawyer-up)",
+      "description": "Case-based legal workflows with server-side document generation and separate public/private rendering.",
+      "problem": "Legal records need controlled sharing, revocable downloads, and stable document content as templates evolve.",
+      "solution": "Authorize every case, process, and download on the API; generate PDF/DOCX through domain services using versioned templates and preserve immutable text snapshots. Public SSR transfers anonymous data only.",
+      "impact": "Template updates preserve existing drafts, clients access only explicitly shared cases, and account administrators have no access to legal records.",
+      "tags": [
+        "Angular 22",
+        "TypeScript",
+        "Signals",
+        "Tailwind CSS 4",
+        "Node.js",
+        "Express 5",
+        "MongoDB",
+        "owl-expressjs-utils",
+        "docx",
+        "PDFKit",
+        "SSR",
+        "Supertest",
+        "GitHub Actions"
+      ],
+      "diagramType": "full-stack",
+      "layers": [
+        "Angular · Public SSR / Private Case Workspace",
+        "Express · Session / Role / Ownership / Sharing Checks",
+        "OWL + MongoDB · Cases → Processes → Documents",
+        "Versioned Templates · Snapshots · PDFKit / docx"
+      ]
+    },
+    {
       "id": "micro-frontends",
       "title": "Enterprise Micro-Frontend Architecture with Module Federation",
       "company": "Clicklease",
@@ -376,14 +567,14 @@
           "name": "Node.js & Express.js",
           "level": 92,
           "experienceYears": "7+ yrs",
-          "description": "RESTful architectures, event-driven services, streaming I/O, middleware chains",
+          "description": "Layered REST APIs, domain services, session authentication, permissions, provider integrations",
           "featured": true
         },
         {
           "name": "Databases (MongoDB, MySQL)",
           "level": 86,
           "experienceYears": "6+ yrs",
-          "description": "Schema design, indexing, Mongoose, transaction consistency",
+          "description": "Schema design, indexes, transactions, idempotency, owner-scoped queries, change streams",
           "featured": true
         },
         {

@@ -45,7 +45,8 @@ export interface ArchitectureItem {
   solution: string;
   impact: string;
   tags: string[];
-  diagramType: 'micro-frontend' | 'signals' | 'canvas-engine' | 'design-system';
+  diagramType: 'micro-frontend' | 'signals' | 'canvas-engine' | 'design-system' | 'full-stack';
+  layers?: string[];
 }
 
 export interface SkillCategory {

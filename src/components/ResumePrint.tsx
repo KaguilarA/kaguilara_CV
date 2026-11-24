@@ -27,7 +27,8 @@ const competencies = [
   },
 ];
 
-const professionalExperience = EXPERIENCES.filter((experience) => experience.id !== 'mobile-crossplatform');
+const professionalExperience = EXPERIENCES.filter((experience) => experience.type !== 'Project Work');
+const fullStackProjects = EXPERIENCES.filter((experience) => experience.type === 'Project Work' && experience.id !== 'mobile-crossplatform');
 const mobileExperience = EXPERIENCES.find((experience) => experience.id === 'mobile-crossplatform');
 
 export const ResumePrint: React.FC = () => {
@@ -57,6 +58,23 @@ export const ResumePrint: React.FC = () => {
           </p>
         ))}
       </div>
+    </section>
+
+    <section className="resume-section resume-fullstack-projects">
+      <h2>{t('FULL STACK PROJECTS')}</h2>
+      <div className="resume-section-rule" />
+      {fullStackProjects.map((project) => (
+        <div className="resume-experience" key={project.id}>
+          <div className="resume-entry-heading">
+            <h3>{project.company} <span>—</span> {t(project.role)}</h3>
+          </div>
+          <p>{t(project.summary)}</p>
+          <ul>
+            {project.highlights.map((highlight) => <li key={highlight}>{t(highlight)}</li>)}
+          </ul>
+          <p className="resume-technologies"><i>{t('Technologies:')} {project.technologies.join(', ')}</i></p>
+        </div>
+      ))}
     </section>
 
     <section className="resume-section">

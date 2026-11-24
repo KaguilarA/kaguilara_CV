@@ -15,6 +15,17 @@ export const ArchitectureShowcase: React.FC = () => {
 
   const renderDiagram = (item: ArchitectureItem) => {
     switch (item.diagramType) {
+      case 'full-stack':
+        return (
+          <ol className="p-4 bg-slate-950/80 rounded-xl border border-slate-800 font-mono text-xs space-y-3">
+            {item.layers?.map((layer, index) => (
+              <li key={layer} className="flex items-center gap-3 p-3 rounded-lg bg-sky-950/30 border border-sky-800/50 text-sky-200">
+                <span aria-hidden="true" className="text-sky-500">{index + 1}</span>
+                <span>{t(layer)}</span>
+              </li>
+            ))}
+          </ol>
+        );
       case 'micro-frontend':
         return (
           <div className="p-4 bg-slate-950/80 rounded-xl border border-slate-800 font-mono text-xs space-y-3">
