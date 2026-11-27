@@ -40,103 +40,6 @@
   },
   "experiences": [
     {
-      "id": "taurus",
-      "role": "Full Stack Developer & Software Architect",
-      "company": "Taurus",
-      "period": "Independent project work",
-      "location": "Costa Rica",
-      "type": "Project Work",
-      "isCurrent": false,
-      "summary": "Modular business platform connecting an Angular application to a TypeScript REST API for catalog, inventory, sales, buyer checkout, and QR table ordering.",
-      "highlights": [
-        "Build Angular 22 standalone interfaces with Signals, signal-based HTTP resources, lazy feature routes, reusable form controls, and configurable business branding.",
-        "Structure an Express 5 and MongoDB backend with separated routes, controllers, domain services, and a central OWL model registry; reuse the code across business deployments with separate databases.",
-        "Coordinate stock movements, sales, and checkout with MongoDB transactions, server-side pricing, revision checks, and idempotency keys to prevent duplicate inventory reservations.",
-        "Connect kitchen and table workflows through session-authorized Socket.IO channels and MongoDB change streams; enforce staff roles and buyer ownership on the API.",
-        "Integrate ONVO payment intents and signed webhooks, Cloudinary/TinyPNG image processing, and CI checks for types, architecture, tests, and builds."
-      ],
-      "technologies": [
-        "Angular 22",
-        "TypeScript",
-        "Signals",
-        "Node.js",
-        "Express 5",
-        "MongoDB",
-        "owl-expressjs-utils",
-        "Socket.IO",
-        "ONVO",
-        "Cloudinary",
-        "GitHub Actions",
-        "Cloudflare Pages",
-        "Render"
-      ]
-    },
-    {
-      "id": "megaphone",
-      "role": "Full Stack Developer & Software Architect",
-      "company": "Megaphone Messenger",
-      "period": "Independent project work",
-      "location": "Costa Rica",
-      "type": "Project Work",
-      "isCurrent": false,
-      "summary": "Full stack messaging application for contact management, multi-number WhatsApp campaigns, email, inbound messages, and per-recipient send history.",
-      "highlights": [
-        "Build an Angular 22 client with standalone components, lazy feature routes, typed API contracts, session guards, and permission-aware dashboard navigation.",
-        "Implement a TypeScript, Node.js, Express 5, and MongoDB API with MongoDB-backed sessions, owner-scoped contacts and messages, permission middleware, and action logging.",
-        "Integrate WAHA for multi-number WhatsApp messaging and inbound webhooks, plus Nodemailer for email; track per-recipient outcomes and retain request IDs across retries.",
-        "Process media with Sharp and Cloudinary, import contacts from CSV/XLSX/JSON, and protect provider credentials with server-side encryption.",
-        "Separate public Angular SSR pages from the client-rendered private dashboard, with hydration, a same-origin API proxy, and GitHub Actions delivery to Cloudflare Pages."
-      ],
-      "technologies": [
-        "Angular 22",
-        "TypeScript",
-        "Node.js",
-        "Express 5",
-        "MongoDB",
-        "Mongoose",
-        "owl-expressjs-utils",
-        "WAHA",
-        "Nodemailer",
-        "Sharp",
-        "Cloudinary",
-        "SSR",
-        "GitHub Actions",
-        "Cloudflare Pages"
-      ]
-    },
-    {
-      "id": "folio",
-      "role": "Full Stack Developer & Software Architect",
-      "company": "Folio (Lawyer-up)",
-      "period": "Independent project work",
-      "location": "Costa Rica",
-      "type": "Project Work",
-      "isCurrent": false,
-      "summary": "Legal workflow and document automation platform organizing cases, processes, clients, and versioned document drafts with controlled lawyer/client access.",
-      "highlights": [
-        "Develop an Angular 22 frontend with strict TypeScript, standalone OnPush components, Signals, httpResource, lazy routes, and responsive Tailwind CSS 4 interfaces.",
-        "Design a layered Express 5 API with domain services and a central OWL/MongoDB model registry; enforce lawyer ownership and explicit client sharing on case reads and document downloads.",
-        "Generate PDF and editable DOCX working drafts from versioned templates and validated inputs, preserving document snapshots and recording professional review.",
-        "Implement revocable HttpOnly sessions and separate account administration from legal-record access; keep private views and responses outside public SSR data transfer.",
-        "Validate access isolation, document generation, and revocation with integration tests against temporary MongoDB; build Node SSR release artifacts with GitHub Actions."
-      ],
-      "technologies": [
-        "Angular 22",
-        "TypeScript",
-        "Signals",
-        "Tailwind CSS 4",
-        "Node.js",
-        "Express 5",
-        "MongoDB",
-        "owl-expressjs-utils",
-        "docx",
-        "PDFKit",
-        "SSR",
-        "Supertest",
-        "GitHub Actions"
-      ]
-    },
-    {
       "id": "machetico",
       "role": "Full Stack Developer & Software Architect",
       "company": "MacheTico",
@@ -144,7 +47,7 @@
       "location": "Costa Rica",
       "type": "Project Work",
       "isCurrent": true,
-      "summary": "Full stack development and software architecture for MacheTico, a multi-tenant, white-label SaaS and CRM platform for small and medium businesses in Costa Rica.",
+      "summary": "Full stack development and software architecture at MacheTico, including its business platform, Taurus, Megaphone Messenger, Folio (Lawyer-up), and the open-source Angular library machetico-ui.",
       "highlights": [
         "Design the multi-tenant software architecture, connecting a React frontend with a Node.js and Express backend and a MongoDB data layer.",
         "Develop backend APIs and authentication flows with JWT, httpOnly cookies, bcrypt password hashing, and tenant-scoped access controls.",
@@ -166,6 +69,122 @@
         "Cloudflare",
         "Cloudflare Workers",
         "Render"
+      ],
+      "projects": [
+        {
+          "id": "taurus",
+          "summary": "Modular business platform connecting an Angular application to a TypeScript REST API for catalog, inventory, sales, buyer checkout, and QR table ordering.",
+          "highlights": [
+            "Build Angular 22 standalone interfaces with Signals, signal-based HTTP resources, lazy feature routes, reusable form controls, and configurable business branding.",
+            "Structure an Express 5 and MongoDB backend with separated routes, controllers, domain services, and a central OWL model registry; reuse the code across business deployments with separate databases.",
+            "Coordinate stock movements, sales, and checkout with MongoDB transactions, server-side pricing, revision checks, and idempotency keys to prevent duplicate inventory reservations.",
+            "Connect kitchen and table workflows through session-authorized Socket.IO channels and MongoDB change streams; enforce staff roles and buyer ownership on the API.",
+            "Integrate ONVO payment intents and signed webhooks, Cloudinary/TinyPNG image processing, and CI checks for types, architecture, tests, and builds."
+          ],
+          "technologies": [
+            "Angular 22",
+            "TypeScript",
+            "Signals",
+            "Node.js",
+            "Express 5",
+            "MongoDB",
+            "owl-expressjs-utils",
+            "Socket.IO",
+            "ONVO",
+            "Cloudinary",
+            "GitHub Actions",
+            "Cloudflare Pages",
+            "Render"
+          ],
+          "name": "Taurus"
+        },
+        {
+          "id": "megaphone",
+          "summary": "Full stack messaging application for contact management, multi-number WhatsApp campaigns, email, inbound messages, and per-recipient send history.",
+          "highlights": [
+            "Build an Angular 22 client with standalone components, lazy feature routes, typed API contracts, session guards, and permission-aware dashboard navigation.",
+            "Implement a TypeScript, Node.js, Express 5, and MongoDB API with MongoDB-backed sessions, owner-scoped contacts and messages, permission middleware, and action logging.",
+            "Integrate WAHA for multi-number WhatsApp messaging and inbound webhooks, plus Nodemailer for email; track per-recipient outcomes and retain request IDs across retries.",
+            "Process media with Sharp and Cloudinary, import contacts from CSV/XLSX/JSON, and protect provider credentials with server-side encryption.",
+            "Separate public Angular SSR pages from the client-rendered private dashboard, with hydration, a same-origin API proxy, and GitHub Actions delivery to Cloudflare Pages."
+          ],
+          "technologies": [
+            "Angular 22",
+            "TypeScript",
+            "Node.js",
+            "Express 5",
+            "MongoDB",
+            "Mongoose",
+            "owl-expressjs-utils",
+            "WAHA",
+            "Nodemailer",
+            "Sharp",
+            "Cloudinary",
+            "SSR",
+            "GitHub Actions",
+            "Cloudflare Pages"
+          ],
+          "name": "Megaphone Messenger"
+        },
+        {
+          "id": "folio",
+          "summary": "Legal workflow and document automation platform organizing cases, processes, clients, and versioned document drafts with controlled lawyer/client access.",
+          "highlights": [
+            "Develop an Angular 22 frontend with strict TypeScript, standalone OnPush components, Signals, httpResource, lazy routes, and responsive Tailwind CSS 4 interfaces.",
+            "Design a layered Express 5 API with domain services and a central OWL/MongoDB model registry; enforce lawyer ownership and explicit client sharing on case reads and document downloads.",
+            "Generate PDF and editable DOCX working drafts from versioned templates and validated inputs, preserving document snapshots and recording professional review.",
+            "Implement revocable HttpOnly sessions and separate account administration from legal-record access; keep private views and responses outside public SSR data transfer.",
+            "Validate access isolation, document generation, and revocation with integration tests against temporary MongoDB; build Node SSR release artifacts with GitHub Actions."
+          ],
+          "technologies": [
+            "Angular 22",
+            "TypeScript",
+            "Signals",
+            "Tailwind CSS 4",
+            "Node.js",
+            "Express 5",
+            "MongoDB",
+            "owl-expressjs-utils",
+            "docx",
+            "PDFKit",
+            "SSR",
+            "Supertest",
+            "GitHub Actions"
+          ],
+          "name": "Folio (Lawyer-up)"
+        },
+        {
+          "id": "machetico-ui",
+          "name": "machetico-ui",
+          "summary": "Create and publish MacheTico’s open-source headless Angular component library, shared across Taurus, Megaphone, and Folio.",
+          "highlights": [
+            "Build reusable standalone OnPush components and interaction primitives with Angular ARIA, Signals, accessible native HTML, and application-owned styling.",
+            "Provide modular package entry points and a typed signal-based HTTP facade; maintain public documentation, a live component catalog, and npm releases."
+          ],
+          "technologies": [
+            "Angular",
+            "TypeScript",
+            "Angular ARIA",
+            "Signals",
+            "OnPush",
+            "npm",
+            "GitHub Actions"
+          ],
+          "links": [
+            {
+              "label": "npm",
+              "url": "https://www.npmjs.com/package/machetico-ui"
+            },
+            {
+              "label": "GitHub",
+              "url": "https://github.com/MacheticoCR/machetico-ui"
+            },
+            {
+              "label": "Documentation",
+              "url": "https://macheticocr.github.io/machetico-ui/"
+            }
+          ]
+        }
       ]
     },
     {
@@ -353,7 +372,7 @@
     {
       "id": "taurus-architecture",
       "title": "Taurus: Transactional Commerce & Real-Time Operations",
-      "company": "Taurus",
+      "company": "MacheTico",
       "description": "A shared application codebase with isolated business deployments and transactional domain operations.",
       "problem": "Orders, stock, payments, and kitchen views must remain consistent across concurrent staff and buyer actions.",
       "solution": "Use layered REST endpoints and OWL-managed MongoDB transactions for writes; publish change-stream invalidations through authorized Socket.IO channels and reload state through scoped HTTP reads.",
@@ -384,7 +403,7 @@
     {
       "id": "megaphone-architecture",
       "title": "Megaphone: Messaging Integrations & Scoped Access",
-      "company": "Megaphone Messenger",
+      "company": "MacheTico",
       "description": "A permission-aware messaging backend serving an Angular dashboard and public SSR pages.",
       "problem": "Multiple sender numbers, external providers, retries, and private contact data require explicit ownership and traceable send results.",
       "solution": "Keep provider calls and encrypted credentials on the server, authorize contacts and messages by owner and permission, and record request IDs and recipient outcomes behind typed frontend services.",
@@ -416,7 +435,7 @@
     {
       "id": "folio-architecture",
       "title": "Folio: Case Access & Versioned Document Generation",
-      "company": "Folio (Lawyer-up)",
+      "company": "MacheTico",
       "description": "Case-based legal workflows with server-side document generation and separate public/private rendering.",
       "problem": "Legal records need controlled sharing, revocable downloads, and stable document content as templates evolve.",
       "solution": "Authorize every case, process, and download on the API; generate PDF/DOCX through domain services using versioned templates and preserve immutable text snapshots. Public SSR transfers anonymous data only.",

@@ -22,6 +22,15 @@ export interface ResumeData {
   openSourceLibraries: OpenSourceLibrary[];
 }
 
+export interface ExperienceProject {
+  id: string;
+  name: string;
+  summary: string;
+  highlights: string[];
+  technologies: string[];
+  links?: { label: string; url: string }[];
+}
+
 export interface Experience {
   id: string;
   role: string;
@@ -33,6 +42,7 @@ export interface Experience {
   highlights: string[];
   technologies: string[];
   isCurrent: boolean;
+  projects?: ExperienceProject[];
   metrics?: { label: string; value: string }[];
 }
 

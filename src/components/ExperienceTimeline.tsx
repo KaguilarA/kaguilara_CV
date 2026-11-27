@@ -1,3 +1,4 @@
+import { ExperienceProjects } from './ExperienceProjects';
 import React, { useState } from 'react';
 import { EXPERIENCES } from '../data/resumeData';
 import { Briefcase, Calendar, MapPin, ChevronDown, ChevronUp, CheckCircle, Zap } from 'lucide-react';
@@ -130,6 +131,8 @@ export const ExperienceTimeline: React.FC = () => {
                         ))}
                       </ul>
                     </div>
+
+                    {exp.projects && <ExperienceProjects projects={exp.projects} />}
 
                     {/* Tech Badges */}
                     <div className="pt-2">

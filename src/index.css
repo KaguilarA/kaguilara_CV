@@ -162,6 +162,33 @@
     break-inside: avoid;
   }
 
+  #resume-print .resume-experience:has(.resume-nested-projects) {
+    break-inside: auto;
+  }
+
+  #resume-print .resume-nested-projects {
+    margin: 0.8em 0 0 1em;
+    padding-left: 1em;
+    border-left: 1px solid #cbd5e1;
+  }
+
+  #resume-print .resume-nested-project {
+    margin-top: 0.8em;
+    break-inside: avoid;
+  }
+
+  #resume-print .resume-nested-projects h4,
+  #resume-print .resume-nested-projects h5 {
+    font-weight: 700;
+    break-after: avoid;
+  }
+
+  #resume-print .resume-nested-project nav {
+    display: flex;
+    gap: 1em;
+    margin-top: 0.4em;
+  }
+
   #resume-print .resume-entry-heading {
     display: flex;
     align-items: baseline;

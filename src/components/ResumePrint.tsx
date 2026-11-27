@@ -1,3 +1,4 @@
+import { ExperienceProjects } from './ExperienceProjects';
 import React from 'react';
 import {
   CERTIFICATIONS,
@@ -72,6 +73,7 @@ export const ResumePrint: React.FC = () => {
           <ul>
             {project.highlights.map((highlight) => <li key={highlight}>{t(highlight)}</li>)}
           </ul>
+          {project.projects && <ExperienceProjects projects={project.projects} print />}
           <p className="resume-technologies"><i>{t('Technologies:')} {project.technologies.join(', ')}</i></p>
         </div>
       ))}

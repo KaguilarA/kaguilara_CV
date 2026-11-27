@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build production bundle
+      - name: Build and obfuscate production bundle
         run: npm run build
 
       - name: Upload GitHub Pages artifact

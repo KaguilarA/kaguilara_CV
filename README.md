@@ -20,9 +20,11 @@ translated content.
 
 ### Full stack project evidence
 
-Taurus, Megaphone Messenger, and Folio (Lawyer-up) appear as project work in the
-experience timeline and as architectural case studies. The printable CV separates
-project work from employment. English and Spanish use the same project records.
+Taurus, Megaphone Messenger, Folio (Lawyer-up), and machetico-ui belong to
+MacheTico and are nested inside its experience entry, including in the printable
+CV. They are not separate employers. The machetico-ui entry includes its npm,
+GitHub, and public documentation links. Architectural case studies also attribute
+these projects to MacheTico. English and Spanish use the same project records.
 Project dates and performance metrics are omitted where not verified.
 
 Content was checked against the local companion repositories on November 23, 2026:
@@ -42,6 +44,14 @@ WhatsApp delivery or read confirmation.
 ---
 
 ## 🚀 Automated Deployment with GitHub Actions
+
+`npm run build` obfuscates production JavaScript with `javascript-obfuscator`
+before Vite finalizes asset hashes. GitHub Pages uploads only the resulting
+`dist` directory. Source maps are disabled; `npm run dev` remains readable.
+Property names and browser APIs are preserved, and expensive control-flow and
+dead-code transformations are disabled to limit runtime overhead. Obfuscation
+makes inspection harder; browser-delivered code and displayed CV data remain
+accessible to visitors.
 
 This repository includes a pre-configured GitHub Actions workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) that builds and deploys the site to **GitHub Pages** on every push to `main`.
 

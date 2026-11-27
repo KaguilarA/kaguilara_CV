@@ -2,6 +2,13 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 
 export type Language = 'en' | 'es';
 const translations: Record<string, string> = {
+  "Provide modular package entry points and a typed signal-based HTTP facade; maintain public documentation, a live component catalog, and npm releases.": "Proporciono puntos de entrada modulares y una fachada HTTP tipada basada en Signals; mantengo documentación pública, un catálogo interactivo de componentes y publicaciones en npm.",
+  "Build reusable standalone OnPush components and interaction primitives with Angular ARIA, Signals, accessible native HTML, and application-owned styling.": "Desarrollo componentes standalone OnPush y primitivas de interacción reutilizables con Angular ARIA, Signals, HTML nativo accesible y estilos definidos por cada aplicación.",
+  "Create and publish MacheTico’s open-source headless Angular component library, shared across Taurus, Megaphone, and Folio.": "Creo y publico la biblioteca de componentes Angular headless de código abierto de MacheTico, compartida por Taurus, Megaphone y Folio.",
+  "Full stack development and software architecture at MacheTico, including its business platform, Taurus, Megaphone Messenger, Folio (Lawyer-up), and the open-source Angular library machetico-ui.": "Desarrollo full stack y arquitectura de software en MacheTico, incluyendo su plataforma de negocios, Taurus, Megaphone Messenger, Folio (Lawyer-up) y la biblioteca Angular de código abierto machetico-ui.",
+  "Documentation": "Documentación",
+  "Links": "Enlaces",
+  "Projects & Libraries": "Proyectos y bibliotecas",
   "Independent project work": "Desarrollo de proyectos independientes",
   "Modular business platform connecting an Angular application to a TypeScript REST API for catalog, inventory, sales, buyer checkout, and QR table ordering.": "Plataforma de negocio modular que conecta una aplicación Angular con una API REST en TypeScript para catálogo, inventario, ventas, compras y pedidos por QR en mesa.",
   "Build Angular 22 standalone interfaces with Signals, signal-based HTTP resources, lazy feature routes, reusable form controls, and configurable business branding.": "Desarrollo interfaces standalone con Angular 22, Signals, recursos HTTP basados en señales, rutas lazy por funcionalidad, controles de formulario reutilizables e identidad de negocio configurable.",
